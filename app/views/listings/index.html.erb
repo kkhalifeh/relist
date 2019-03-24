@@ -1,14 +1,13 @@
 <h1>Listings</h1>
 
-
 <ol>
   <% @active_listings.each do |listing| %>
     <li><%= listing.description %></li>
-    <p>Original Price: <%= listing.price %></p>
-    <p>Your Price: <%= listing.value %></p>
-    <p>Start Date: <%= listing.startdate %></p>
-    <p>End Date: <%= listing.enddate %></p>
-    <p>Numbder of Guests: <%= listing.guests %></p>
-    <p>Seller: <%= link_to listing.user.name, "/user/#{listing.user.id}" %></p>
+    <p>Value: <%= listing.price %></p>
+    <p>Price: <%= listing.value %></p>
+    <p>Start Date: <%= listing.display_start_date %></p>
+    <p>End Date: <%= listing.display_end_date %></p>
+    <p>Guests: <%= listing.guests %></p>
+    <p>Posted by: <%= link_to listing.user.name, "/user/#{listing.user.id}" %></p>
     <% end %>
 </ol>
