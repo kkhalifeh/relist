@@ -1,7 +1,14 @@
 class ApplicationRecord < ActiveRecord::Base
   self.abstract_class = true
 
-  # Transform and return current date for internal sorting, e.g. "3302019"
+  # Bootstrap Datepicker (https://bootstrap-datepicker.readthedocs.io/en/latest/)
+  # creates a nice UI calendar we could use to receive start and end date input
+  # I think it comes in the format "MM/DD/YYYY"
+  # The below logic should handle that format. If we can customize the Bootstrap
+  # Datepicker default, we can change and simplify these methods
+
+  # Transform and return current date for internal sorting, leading zeros removed
+  # i.e. "MMDDYYYY", "MDDYYYY", "MMDYYYY", or "MDYYYY"
   def self.current_date_for_sort
     current_date = Time.now.to_s.split("-")
     current_month = current_date[1].to_i
@@ -10,7 +17,8 @@ class ApplicationRecord < ActiveRecord::Base
     "#{current_month} #{current_day} #{current_year}".split.join.to_i
   end
 
-  # Display month, e.g. return "January"
+  # Given a date string display the month
+  # e.g. from "01 01 2020" return "January"
   def display_month(date_string)
     month_number = date_string[0].to_i
     case month_number

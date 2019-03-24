@@ -1,0 +1,20 @@
+<h1>Listings</h1>
+
+
+<%# Iterate over active listing (future and unsold). Display listing description,
+price, value, start date, end date, guests, and a username link to the show page
+of the user who posted the listing %>
+<ol>
+  <% @active_listings.each do |listing| %>
+    <li><%= listing.description %></li>
+    <ul>
+    <li>Value: <%= listing.price %></li>
+    <li>Price: <%= listing.value %></li>
+    <li>Start Date: <%= listing.display_start_date %></li>
+    <li>End Date: <%= listing.display_end_date %></li>
+    <li>Guests: <%= listing.guests %></li>
+    <li>Posted by: <%= link_to listing.user.username, "/users/#{listing.user.username}" %></li>
+    </ul>
+    <br>
+    <% end %>
+</ol>

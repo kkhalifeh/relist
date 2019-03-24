@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_24_081049) do
+ActiveRecord::Schema.define(version: 2019_03_24_164528) do
 
   create_table "listings", force: :cascade do |t|
     t.decimal "value"
@@ -38,6 +38,7 @@ ActiveRecord::Schema.define(version: 2019_03_24_081049) do
     t.integer "age"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "username"
   end
 
 end

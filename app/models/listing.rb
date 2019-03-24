@@ -2,12 +2,19 @@ class Listing < ApplicationRecord
   has_one :sale
   belongs_to :user
 
-  # Transform start date and return a string, e.g. "12 20 2019"
+  # Bootstrap Datepicker (https://bootstrap-datepicker.readthedocs.io/en/latest/)
+  # creates a nice UI calendar we could use to receive start and end date input
+  # I think it comes in the format "mm/dd/yyyy"
+  # The below logic should handle that format. If we can customize the Bootstrap
+  # Datepicker default, we can change and simplify these methods
+
+
+  # Transform start date and return a string, e.g. "MM DD YYYY"
   def start_date_string
     self.start_date.split("/")
   end
 
-  # Transform end date and return a string, e.g. "01 01 2020"
+  # Transform end date and return a string, e.g. "MM DD YYYY"
   def end_date_string
     self.end_date.split("/")
   end
@@ -22,7 +29,8 @@ class Listing < ApplicationRecord
     "#{display_month(end_date_string)} #{end_date_string[1]}, #{end_date_string[2]}"
   end
 
-  # Transform and return current date for internal sorting, e.g. "112020"
+  # Transform and return start date for internal sorting, leading zeros removed
+  # i.e. "MMDDYYYY", "MDDYYYY", "MMDYYYY", or "MDYYYY"
   def start_date_for_sort
     start_month = start_date_string[0].to_i
     start_day = start_date_string[1].to_i
