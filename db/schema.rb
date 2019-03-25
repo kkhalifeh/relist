@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_24_223238) do
+ActiveRecord::Schema.define(version: 2019_03_25_151122) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -39,7 +39,7 @@ ActiveRecord::Schema.define(version: 2019_03_24_223238) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "holidays", force: :cascade do |t|
+  create_table "listings", force: :cascade do |t|
     t.integer "value"
     t.integer "price"
     t.integer "guest"
@@ -51,17 +51,17 @@ ActiveRecord::Schema.define(version: 2019_03_24_223238) do
     t.date "check_out"
     t.string "description"
     t.integer "category_id"
-    t.index ["category_id"], name: "index_holidays_on_category_id"
-    t.index ["user_id"], name: "index_holidays_on_user_id"
+    t.index ["category_id"], name: "index_listings_on_category_id"
+    t.index ["user_id"], name: "index_listings_on_user_id"
   end
 
-  create_table "listings", force: :cascade do |t|
+  create_table "sales", force: :cascade do |t|
     t.integer "seller_id"
     t.integer "buyer_id"
-    t.integer "holiday_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["holiday_id"], name: "index_listings_on_holiday_id"
+    t.integer "listing_id"
+    t.index ["listing_id"], name: "index_sales_on_listing_id"
   end
 
   create_table "users", force: :cascade do |t|

@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
 
-  resources :listings, only: [:index]
+  resources :sales, only: [:index]
   resources :users, only: [:index, :new, :create, :show]
 
-  resources :holidays do
-    resources :listings, only: [:create]
+  resources :listings do
+    resources :sales, only: [:create]
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

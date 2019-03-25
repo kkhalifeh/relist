@@ -11,21 +11,21 @@ require 'faker'
 # users = 30.times do
 #   name = Faker::Name.name
 #   email = Faker::Internet.email
-#   age = rand(21...60)
-#   User.create({name: "#{name}", email: "#{email}", age: age}) end
+#   User.create({name: "#{name}", email: "#{email}"}) end
+
+
 # categories = Category.create([{ label: 'City Hotel'},{ label: 'City and shop'},{ label: 'Cruise'},{ label: 'AirBNB'}, { label: 'Spa & Retreats'}, { label: 'Honeymoon'}])
 
-# holidays = 60.times do
-#   value = Faker::Number.number(4)
-#   price = Faker::Number.number(3)
-#   guest = rand(1...6)
-#   user_id = rand(1...31)
-#   title = Faker::Address.city
-#   check_in = Faker::Date.forward(20)
-#   check_out = Faker::Date.forward(30)
-#   description = Faker::Marketing.buzzwords
-#   category_id = rand(1...6)
-#   Holiday.create({value: value, price: price, guest: guest, user_id: user_id, title: "#{title}", check_in: check_in, check_out: check_out, description: "#{description}", category_id: category_id}) end
+listings = 60.times do
+  value = Faker::Number.number(4)
+  price = Faker::Number.number(3)
+  guest = rand(1...6)
+  user_id = rand(1...30)
+  title = Faker::Address.city
+  check_in = Faker::Date.forward(20)
+  check_out = Faker::Date.forward(30)
+  description = Faker::Marketing.buzzwords
+  Listing.create({value: value, price: price, guest: guest, user_id: user_id, title: "#{title}", check_in: check_in, check_out: check_out, description: "#{description}"}) end
 
 # create_table "holidays", force: :cascade do |t|
 #   t.integer "value"

@@ -19,8 +19,8 @@ class UsersController < ApplicationController
   end
 
   def show
-    @listings = current_user.listings
-    @listings_purchased = Listing.find_by({buyer_id: current_user.id})
+    @sales = current_user.sales
+    @sales_purchased = Sale.find_by({buyer_id: current_user.id})
     # byebug
   end
 

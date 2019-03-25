@@ -1,2 +1,35 @@
-<h1>Listings#show</h1>
-<p>Find me in app/views/listings/show.html.erb</p>
+<p id="notice"><%= notice %></p>
+
+<div id="listing_header">
+  <h2><%= @listing.title %> - <%= "$#{@listing.price}" %></h2>
+</div>
+
+<h4><%= button_to 'Edit', edit_listing_path(@listing), {method: :get} %> <%= button_to 'Delete', @listing, method: :delete, data: { confirm: 'Confirm delete?' } %> <%= button_to "Book", listing_sales_path(@listing) %> </h4>
+
+<div id="listing_content">
+  <ol>
+    <h3>Seller</h3>
+    <ul><%= "#{@listing.user.name} (#{@listing.user.email})" %></ul>
+    <h3>Value(Original Price)</h3>
+    <ul><%= "$#{@listing.value}" %></ul>
+    <h3>Price</h3>
+    <ul><%= "$#{@listing.price}"  %></ul>
+    <h3>Number of Guests</h3>
+    <ul><%= @listing.guest %></ul>
+    <h3>Check In Date</h3>
+    <ul><%= @listing.check_in %></ul>
+    <h3>Check Out Date</h3>
+    <ul><%= @listing.check_out %></ul>
+    <h3>Description</h3>
+    <ul><%= @listing.description %></ul>
+    <%# <% if @listing.photos.attached? %>
+      <!-- <h3>Photos</h3> -->
+      <%# <% @listing.photos.each do |photo| %>
+        <%# <%= image_tag photo, size: "500x300" %>
+      <%# <% end %>
+    <%# <% end %>
+    </ol>
+</div>
+<div id="listing_footer">
+  <h4><%= link_to 'Back to listings', listings_path %></h4>
+</div>
