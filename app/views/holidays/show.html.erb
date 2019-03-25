@@ -1,0 +1,37 @@
+<p id="notice"><%= notice %></p>
+
+<div id="holiday_header">
+  <h2><%= @holiday.title %> - <%= "$#{@holiday.price}" %></h2>
+</div>
+
+<h4><%= button_to 'Edit', edit_holiday_path(@holiday), {method: :get} %> <%= button_to 'Delete', @holiday, method: :delete, data: { confirm: 'Confirm delete?' } %> <%= button_to "Book", holiday_listings_path(@holiday) %> </h4>
+
+<div id="holiday_content">
+  <ol>
+    <h3>Seller</h3>
+    <ul><%= "#{@holiday.user.name} (#{@holiday.user.email})" %></ul>
+    <h3>Value(Original Price)</h3>
+    <ul><%= "$#{@holiday.value}" %></ul>
+    <h3>Price</h3>
+    <ul><%= "$#{@holiday.price}"  %></ul>
+    <h3>Number of Guests</h3>
+    <ul><%= @holiday.guest %></ul>
+    <h3>Check In Date</h3>
+    <ul><%= @holiday.check_in %></ul>
+    <h3>Check Out Date</h3>
+    <ul><%= @holiday.check_out %></ul>
+    <h3>Description</h3>
+    <ul><%= @holiday.description %></ul>
+    <h3>Category</h3>
+    <ul><%= @holiday.category.label %></ul>
+    <%# <% if @holiday.photos.attached? %>
+      <!-- <h3>Photos</h3> -->
+      <%# <% @holiday.photos.each do |photo| %>
+        <%# <%= image_tag photo, size: "500x300" %>
+      <%# <% end %>
+    <%# <% end %>
+    </ol>
+</div>
+<div id="holiday_footer">
+  <h4><%= link_to 'Back to holidays', holidays_path %></h4>
+</div>

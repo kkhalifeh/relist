@@ -1,0 +1,58 @@
+<%= form_for @holiday do |f| %>
+  <% if holiday.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(holiday.errors.count, "error") %> prohibited this holiday from being saved:</h2>
+
+      <ul>
+      <% @holiday.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= f.label :value %>
+    <%= f.number_field :value %>
+  </div>
+
+  <div>
+    <%= f.label :price %>
+    <%= f.number_field :price %>
+  </div>
+
+  <div>
+    <%= f.label :guest %>
+    <%= f.number_field :guest %>
+  </div>
+
+  <div>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div>
+
+  <div>
+    <%= f.label :check_in %>
+    <%= f.date_select :check_in, data:{ provide:'datepicker' } %>
+  </div>
+
+  <div>
+    <%= f.label :check_out %>
+    <%= f.date_select :check_out, data:{ provide:'datepicker' } %>
+  </div>
+
+  <div>
+    <%= f.label :description %>
+    <%= f.text_area :description %>
+  </div>
+
+  <div>
+    <%= f.label :category_id  %>
+    <%= f.collection_select(:category_id, Category.all , :id, :label, prompt: true) %> <br>
+  </div>
+
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
