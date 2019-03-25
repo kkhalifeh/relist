@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  skip_before_action :authorized, only: [:new, :create]
+
   def index
   end
 
@@ -7,15 +9,16 @@ class UsersController < ApplicationController
   end
 
   def create
-     @user = User.new(params[:user])
+     @user = User.new(user_params)
      if @user.save
        flash[:notice] = "You signed up successfully"
        flash[:color]= "valid"
+       redirect_to login_path
      else
        flash[:notice] = "Form is invalid"
        flash[:color]= "invalid"
+       render :new
      end
-     render :new
   end
 
   def show
@@ -23,6 +26,12 @@ class UsersController < ApplicationController
     @my_past_stays = current_user.my_past_stays
     @active_listings = current_user.active_listings
     @all_active_bought_listings = current_user.all_active_bought_listings
+  end
+
+  private
+
+  def user_params
+    params.require(:user).permit(:name, :email, :password, :password_confirmation)
   end
 
 
