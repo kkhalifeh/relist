@@ -30,7 +30,7 @@ class ListingsController < ApplicationController
   # POST /listings.json
   def create
     @listing = Listing.create(listing_params)
-    @listing.user = current_user
+    @listing.seller = current_user
     # @listing.photos.attach(params[:listing][:photos])
 
     respond_to do |format|

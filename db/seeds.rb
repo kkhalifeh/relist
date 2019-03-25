@@ -7,7 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 require 'faker'
-
+#
 # users = 30.times do
 #   name = Faker::Name.name
 #   email = Faker::Internet.email
