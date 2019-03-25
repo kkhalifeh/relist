@@ -2,15 +2,17 @@ class ListingsController < ApplicationController
   before_action :set_listing, only: [:show, :edit, :update, :destroy]
 
   # GET /listings
-  # GET /listings.json
   def index
-    # @listings = Listing.all
     #WILL_PAGINATE GEM INSTALLED
-    @listings = Listing.paginate(page: params[:page], per_page: 15)
+    @listings = Listing.all.find_all do |listing| listing.sale == nil end
+    @listings = @listings.paginate(page: params[:page], per_page: 10)
+    if params[:search]
+      # @listings = Listing.search(params[:search]).paginate(page: params[:page], per_page: 10).order("created_at DESC")
+      @listings = Listing.check_in_date(params[:search][:start_date]).paginate(page: params[:page]).order("check_in DESC")
+    end
   end
 
   # GET /listings/1
-  # GET /listings/1.json
   def show
     # byebug
   end
@@ -27,7 +29,6 @@ class ListingsController < ApplicationController
   end
 
   # POST /listings
-  # POST /listings.json
   def create
     @listing = Listing.create(listing_params)
     @listing.seller = current_user
@@ -43,7 +44,6 @@ class ListingsController < ApplicationController
   end
 
   # PATCH/PUT /listings/1
-  # PATCH/PUT /listings/1.json
   def update
     # @listing.photos.attach(params[:listing][:photos])
     respond_to do |format|
@@ -56,7 +56,6 @@ class ListingsController < ApplicationController
   end
 
   # DELETE /listings/1
-  # DELETE /listings/1.json
   def destroy
     @listing.destroy
     respond_to do |format|
