@@ -21,6 +21,8 @@ class UsersController < ApplicationController
   def show
     @my_past_listings = current_user.my_past_listings
     @my_past_stays = current_user.my_past_stays
+    @active_listings = current_user.active_listings
+    @all_active_bought_listings = current_user.all_active_bought_listings
   end
 
 

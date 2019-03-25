@@ -1,6 +1,8 @@
 class ListingsController < ApplicationController
   before_action :set_listing, only: [:show, :edit, :update, :destroy]
 
+  require 'will_paginate/array'
+
   # GET /listings
   def index
     #WILL_PAGINATE GEM INSTALLED
