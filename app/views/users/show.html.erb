@@ -31,7 +31,7 @@ USER PROFILE
         <%# <% if listing.photos.attached? %>
             <%# <!-- <td><%= image_tag listing.photos.first, size: "100x70" %>
         <%# <% end %>
-        <td><%= link_to 'Show', listing %> | <%= link_to 'Edit', edit_listing_path(listing) %> | <%= link_to 'Destroy', listing, method: :delete, data: { confirm: 'Are you sure?' } %> </td>
+        <td><%= link_to 'Show', listing %> | <%= link_to 'Destroy', listing, method: :delete, data: { confirm: 'Are you sure?' } %> </td>
       </tr>
     <% end %>
   </tbody>
@@ -52,7 +52,6 @@ USER PROFILE
       <th>Value</th>
       <th>Check In Date</th>
       <th>Check Out Date</th>
-      <th>Status</th>
       <th>Actions</th>
       <th colspan="3"></th>
     </tr>
@@ -67,11 +66,10 @@ USER PROFILE
         <td><%= "$#{listing.value}" %></td>
         <td><%= listing.check_in %></td>
         <td><%= listing.check_out %></td>
-        <td><%= "Sold" %></td>
         <%# <% if listing.photos.attached? %>
             <%# <!-- <td><%= image_tag listing.photos.first, size: "100x70" %>
         <%# <% end %>
-        <td><%= link_to 'Show', listing %> | <%= link_to 'Edit', edit_listing_path(listing) %> | <%= link_to 'Destroy', listing, method: :delete, data: { confirm: 'Are you sure?' } %> </td>
+        <td><%= link_to 'Show', listing %> | <%= link_to 'Destroy', listing, method: :delete, data: { confirm: 'Are you sure?' } %> </td>
 
       </tr>
     <% end %>
