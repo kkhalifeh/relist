@@ -2,7 +2,7 @@ class Listing < ApplicationRecord
   #ASSOCIATIONS
   has_one :sale
   # belongs_to :category
-  belongs_to :user
+  belongs_to :seller, :class_name => 'User', :foreign_key => 'seller_id'
 
   #ACTIVE STORAGE ASSOCIATION TO ADD IMAGES
   # has_many_attached :photos

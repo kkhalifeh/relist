@@ -20,12 +20,12 @@ listings = 60.times do
   value = Faker::Number.number(4)
   price = Faker::Number.number(3)
   guest = rand(1...6)
-  user_id = rand(1...30)
+  seller_id = rand(1...30)
   title = Faker::Address.city
   check_in = Faker::Date.forward(20)
   check_out = Faker::Date.forward(30)
   description = Faker::Marketing.buzzwords
-  Listing.create({value: value, price: price, guest: guest, user_id: user_id, title: "#{title}", check_in: check_in, check_out: check_out, description: "#{description}"}) end
+  Listing.create({value: value, price: price, guest: guest, seller_id: seller_id, title: "#{title}", check_in: check_in, check_out: check_out, description: "#{description}"}) end
 
 # create_table "holidays", force: :cascade do |t|
 #   t.integer "value"
@@ -33,12 +33,12 @@ listings = 60.times do
 #   t.integer "guest"
 #   t.datetime "created_at", null: false
 #   t.datetime "updated_at", null: false
-#   t.integer "user_id"
+#   t.integer "seller_id"
 #   t.string "title"
 #   t.date "check_in"
 #   t.date "check_out"
 #   t.string "description"
-#   t.index ["user_id"], name: "index_holidays_on_user_id"
+#   t.index ["seller_id"], name: "index_holidays_on_seller_id"
 # end
 #
 # create_table "listings", force: :cascade do |t|
