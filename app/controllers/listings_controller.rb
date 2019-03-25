@@ -6,7 +6,11 @@ class ListingsController < ApplicationController
   def index
     # @listings = Listing.all
     #WILL_PAGINATE GEM INSTALLED
-    @listings = Listing.paginate(page: params[:page], per_page: 15)
+    @listings = Listing.all.find_all do |listing| listing.sale == nil end
+    @listings = @listings.paginate(page: params[:page], per_page: 10)
+    if params[:search]
+      @listings = Listing.search(params[:search]).paginate(page: params[:page], per_page: 10).order("created_at DESC")
+    end
   end
 
   # GET /listings/1
@@ -30,7 +34,7 @@ class ListingsController < ApplicationController
   # POST /listings.json
   def create
     @listing = Listing.create(listing_params)
-    @listing.user = current_user
+    @listing.seller = current_user
     # @listing.photos.attach(params[:listing][:photos])
 
     respond_to do |format|

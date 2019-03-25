@@ -2,47 +2,64 @@
 
 <h1>Listings</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Created By</th>
-      <th>Value</th>
-      <th>Price</th>
-      <th>Guest</th>
-      <th>Title</th>
-      <th>Check In Date</th>
-      <th>Cehck Out Date</th>
-      <th>Description</th>
-      <th>Category</th>
-      <th>Actions</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<div id="navbar-form">
+  <%= form_tag listings_path, method: :get, class: "navbar-form navbar-left search-form" do %>
+    <%= text_field_tag(
+        :search,
+        params[:search],
+        placeholder: "Search(Ex: 'Spain')",
+        class: "form-control"
+    ) %>
+  <% end %>
+</div>
 
-  <tbody>
-    <% @listings.each do |listing| %>
-      <% if listing.sale == nil %>
+<div id="index-view-table">
+
+  <table>
+    <thead>
       <tr>
-        <td><%= "#{listing.seller.name} (#{listing.seller.email})" %></td>
-        <td><%= "$#{listing.value}" %></td>
-        <td><%= "$#{listing.price}" %></td>
-        <td><%= listing.guest %></td>
-        <td><%= link_to listing.title, listing %></td>
-        <td><%= listing.check_in %></td>
-        <td><%= listing.check_out %></td>
-        <td><%= listing.description %></td>
-        <%# <% if listing.photos.attached? %>
-            <%# <!-- <td><%= image_tag listing.photos.first, size: "100x70" %>
-        <%# <% end %>
-        <td><%= link_to 'Show', listing %> | <%= link_to 'Edit', edit_listing_path(listing) %> | <%= link_to 'Destroy', listing, method: :delete, data: { confirm: 'Are you sure?' } %> </td>
-        <td><%= button_to "Book", listing_sales_path(listing) %></td>
-        <% end %>
+        <th>Created By</th>
+        <th>Value</th>
+        <th>Price</th>
+        <th>Guest</th>
+        <th>Title</th>
+        <th>Check In Date</th>
+        <th>Cehck Out Date</th>
+        <th>Description</th>
+        <th>Category</th>
+        <th>Actions</th>
+        <th colspan="3"></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+
+    <tbody>
+      <% @listings.each do |listing| %>
+        <% if listing.sale == nil %>
+        <tr>
+          <td><%= "#{listing.seller.name} (#{listing.seller.email})" %></td>
+          <td><%= "$#{listing.value}" %></td>
+          <td><%= "$#{listing.price}" %></td>
+          <td><%= listing.guest %></td>
+          <td><%= link_to listing.title, listing %></td>
+          <td><%= listing.check_in %></td>
+          <td><%= listing.check_out %></td>
+          <td><%= listing.description %></td>
+          <%# <% if listing.photos.attached? %>
+              <%# <!-- <td><%= image_tag listing.photos.first, size: "100x70" %>
+          <%# <% end %>
+          <td><%= link_to 'Show', listing %> | <%= link_to 'Edit', edit_listing_path(listing) %> | <%= link_to 'Destroy', listing, method: :delete, data: { confirm: 'Are you sure?' } %> </td>
+          <td><%= button_to "Book", listing_sales_path(listing) %></td>
+          <% end %>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
 
 <br>
-<%= will_paginate @listings %> <br>
-
-<%= link_to 'New Listing', new_listing_path %>
+<% unless @listings.empty? %>
+  <%= will_paginate @listings %>
+<% end %>
+<%= page_entries_info @listings %> <br>
+<br>
+<%= link_to 'New Listing', new_listing_path %> <br>
