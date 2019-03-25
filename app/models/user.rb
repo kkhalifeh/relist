@@ -40,5 +40,18 @@ class User < ApplicationRecord
     end
   end
 
+  #All Active Listings ever created (sold or not sold)
+  def active_listings
+    all_my_listings.select do |listing|
+      listing.check_in > Time.now.strftime('%a, %d %b %Y').to_date
+    end
+  end
+
+  #All Active stays
+  def all_active_bought_listings
+    all_my_stays.select do |stay|
+      stay.check_in > Time.now.strftime('%a, %d %b %Y').to_date
+    end
+  end
 
 end
