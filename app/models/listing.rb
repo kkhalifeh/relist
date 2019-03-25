@@ -5,7 +5,12 @@ class Listing < ApplicationRecord
   belongs_to :seller, :class_name => 'User', :foreign_key => 'seller_id'
 
   def self.search(search)
-    where("title LIKE ?", "%#{search}%") 
+    where("title LIKE ?", "%#{search}%")
+    # search.values.join("-").to_date
+  end
+
+  def self.check_in_date(search)
+    where('check_in > ?', search)
   end
 
   #ACTIVE STORAGE ASSOCIATION TO ADD IMAGES

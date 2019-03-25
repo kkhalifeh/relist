@@ -2,16 +2,14 @@
 
 <h1>Listings</h1>
 
-<div id="navbar-form">
-  <%= form_tag listings_path, method: :get, class: "navbar-form navbar-left search-form" do %>
-    <%= text_field_tag(
-        :search,
-        params[:search],
-        placeholder: "Search(Ex: 'Spain')",
-        class: "form-control"
-    ) %>
-  <% end %>
-</div>
+<label for="Listing Calendar">Select check in date</label>
+  <%= form_for :search, method: :get do |f| -%>
+
+      <%= f.select :start_date, options_for_select( [['Check In Date','indate']]) -%>
+      <%= f.date_field :start_date -%>
+      <%= f.submit 'Search' -%>
+
+  <% end -%>
 
 <div id="index-view-table">
 
@@ -62,4 +60,5 @@
 <% end %>
 <%= page_entries_info @listings %> <br>
 <br>
+<%= link_to 'All Listings', listings_path %> <br>
 <%= link_to 'New Listing', new_listing_path %> <br>
