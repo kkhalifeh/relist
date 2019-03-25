@@ -19,9 +19,8 @@ class UsersController < ApplicationController
   end
 
   def show
-    @sales = current_user.sales
-    @sales_purchased = Sale.find_by({buyer_id: current_user.id})
-    # byebug
+    @my_past_listings = current_user.my_past_listings
+    @my_past_stays = current_user.my_past_stays
   end
 
 
