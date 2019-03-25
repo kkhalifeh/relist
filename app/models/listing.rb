@@ -40,4 +40,13 @@ class Listing < ApplicationRecord
     end
   end
 
+  def status
+    if self.sale
+      "Sold"
+    else
+      "Not sold"
+    end
+  end
+
+
 end

@@ -19,7 +19,8 @@ class UsersController < ApplicationController
   end
 
   def show
-
+    @my_past_listings = current_user.my_past_listings
+    @my_past_stays = current_user.my_past_stays
   end
 
 
