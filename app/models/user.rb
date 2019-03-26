@@ -21,7 +21,8 @@ class User < ApplicationRecord
   # current date
   def my_past_listings
     all_my_listings.select do |listing|
-      listing.check_out < Time.now.strftime('%a, %d %b %Y').to_date
+      # Refactor Time.now.str... x4 into ApplicationRecord as session[:current_date] or just current_date?
+      listing.check_out < current_time
     end
   end
 
@@ -37,22 +38,28 @@ class User < ApplicationRecord
   # Select all past stays bought by current user
   def my_past_stays
     all_my_stays.select do |stay|
-      stay.check_out < Time.now.strftime('%a, %d %b %Y').to_date
+      stay.check_out < current_time
     end
   end
 
   #All Active Listings ever created (sold or not sold)
   def active_listings
     all_my_listings.select do |listing|
-      listing.check_in > Time.now.strftime('%a, %d %b %Y').to_date
+      listing.check_in > current_time
     end
   end
 
   #All Active stays
   def all_active_bought_listings
     all_my_stays.select do |stay|
-      stay.check_in > Time.now.strftime('%a, %d %b %Y').to_date
+      stay.check_in > current_time
     end
+  end
+
+  private
+
+  def current_time
+    Time.now.strftime('%a, %d %b %Y').to_date
   end
 
 end

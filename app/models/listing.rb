@@ -51,9 +51,9 @@ class Listing < ApplicationRecord
 
   def status
     if self.sale
-      "Sold"
+      true
     else
-      "Not sold"
+      false
     end
   end
 
