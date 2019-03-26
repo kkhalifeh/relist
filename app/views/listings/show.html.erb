@@ -1,10 +1,13 @@
-<p id="notice"><%= notice %></p>
+
 
 <div id="listing_header">
   <h2><%= @listing.title %> - <%= "$#{@listing.price}" %></h2>
 </div>
 
-<h4><%= button_to 'Edit', edit_listing_path(@listing), {method: :get} %> <%= button_to 'Delete', @listing, method: :delete, data: { confirm: 'Confirm delete?' } %> <%= button_to "Book", listing_sales_path(@listing) %> </h4>
+<h4><%= button_to 'Edit', edit_listing_path(@listing), {method: :get} %> <%= button_to 'Delete', @listing, method: :delete, data: { confirm: 'Confirm delete?' } %>
+  <% if !@listing.sale %>
+    <%= button_to "Book", listing_sales_path(@listing) %> </h4>
+  <% end %>
 
 <div id="listing_content">
   <ol>
