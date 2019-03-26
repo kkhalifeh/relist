@@ -9,6 +9,7 @@ class User < ApplicationRecord
 
 
   validates :email, uniqueness: { case_sensitive: false }
+  validates :email, format: { with: URI::MailTo::EMAIL_REGEXP, message: "only allows valid emails" }
   # validates :encrypted_password, :confirmation => true #encrypted_password_confirmation attr
   # validates_length_of :encrypted_password, :in => 6..20, :on => :create
 
