@@ -28,6 +28,7 @@ class Listing < ApplicationRecord
   validate :check_out_date_cannot_be_before_check_in
   validate :check_in_cannot_be_in_the_past
   validate :maximum_value_is_80_percent_of_price
+  validate :check_in_and_check_out_cannot_be_same_day
 
 
   # CUSTOM VALIDATOR METHOD
@@ -40,6 +41,12 @@ class Listing < ApplicationRecord
   def check_in_cannot_be_in_the_past
     if self.check_in.past?
       errors.add(:check_in, "cannot be in the past!")
+    end
+  end
+
+  def check_in_and_check_out_cannot_be_same_day
+    if self.check_in = self.check_out
+      errors.add(:check_in, "date cannot be same as check out")
     end
   end
 
