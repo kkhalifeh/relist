@@ -45,14 +45,59 @@ class User < ApplicationRecord
   #All Active Listings ever created (sold or not sold)
   def active_listings
     all_my_listings.select do |listing|
-      listing.check_in > current_time
+      listing.check_in >= current_time
     end
   end
 
   #All Active stays
   def all_active_bought_listings
     all_my_stays.select do |stay|
-      stay.check_in > current_time
+      stay.check_in >= current_time
+    end
+  end
+
+  def total_sales
+    all_sales = Sale.where(seller_id: self.id)
+    all_sold_listings_price = all_sales.map do |stay|
+      stay.listing.price
+    end
+    all_sold_listings_price.inject do |sum, price|
+      sum += price
+    end
+  end
+
+  def total_spent
+    all_my_stays_price = all_my_stays.map do |listing|
+      listing.price
+    end
+    all_my_stays_price.inject do |sum, price|
+      sum += price
+    end
+  end
+
+  def largest_discount
+    discounts = all_my_stays.map do |listing|
+      listing.value - listing.price
+    end
+    discounts.max
+  end
+
+  def average_discount
+    discounts = all_my_stays.map do |listing|
+      listing.value - listing.price
+    end
+    sum_discounts = discounts.inject do |sum, discount|
+      sum += discount
+    end
+    sum_discounts.to_f / discounts.length
+  end
+
+  def total_saved
+    discounts = all_my_stays.map do |listing|
+      listing.value - listing.price
+    end
+    discounts.inject do |sum, discount|
+      sum += discount
     end
   end
 

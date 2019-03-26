@@ -28,6 +28,15 @@ class UsersController < ApplicationController
     @all_active_bought_listings = current_user.all_active_bought_listings
   end
 
+  def analytics
+    @total_sales = current_user.total_sales
+    @total_spent = current_user.total_spent
+    @largest_discount = current_user.largest_discount
+    @average_discount = current_user.average_discount
+    @total_saved = current_user.total_saved
+    render :analytics
+  end
+
   private
 
   def user_params
