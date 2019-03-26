@@ -30,7 +30,7 @@ class Listing < ApplicationRecord
   validate :maximum_value_is_80_percent_of_price
 
 
-  #CUSTOM VALIDATOR METHOD
+  # CUSTOM VALIDATOR METHOD
   def check_out_date_cannot_be_before_check_in
     if self.check_out < self.check_in
       errors.add(:check_out, "cannot be before check in")

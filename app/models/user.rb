@@ -101,6 +101,16 @@ class User < ApplicationRecord
     end
   end
 
+  def average_guests
+    all_my_guests = all_my_stays.map do |listing|
+      listing.guest
+    end
+    sum_guests = all_my_guests.inject do |sum, guest|
+      sum += guest
+    end
+    sum_guests.to_f / all_my_guests.length
+  end
+
   private
 
   def current_time
