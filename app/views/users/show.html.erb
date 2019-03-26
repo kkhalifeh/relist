@@ -13,7 +13,7 @@ USER PROFILE
       <th>Value</th>
       <th>Check In Date</th>
       <th>Check Out Date</th>
-      <th>Status</th>
+      <th>Sold</th>
       <th>Actions</th>
       <th colspan="3"></th>
     </tr>
@@ -27,7 +27,7 @@ USER PROFILE
         <td><%= "$#{listing.value}" %></td>
         <td><%= listing.check_in %></td>
         <td><%= listing.check_out %></td>
-        <td><%= listing.status %></td>
+        <td><% if listing.status %> <%= "\u2713" %> <%else%> <%= " " %> <% end  %></td>
         <%# <% if listing.photos.attached? %>
             <%# <!-- <td><%= image_tag listing.photos.first, size: "100x70" %>
         <%# <% end %>
