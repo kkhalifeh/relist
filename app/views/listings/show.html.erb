@@ -29,6 +29,7 @@
     <h3>Description</h3>
     <ul><%= @listing.description %></ul>
     <% if @listing.photo.attached? %>
+    
       <h3>Photo</h3>
         <%= image_tag @listing.photo, size: "500x300" %>
     <% end %>
