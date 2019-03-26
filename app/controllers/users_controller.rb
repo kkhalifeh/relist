@@ -21,11 +21,20 @@ class UsersController < ApplicationController
      end
   end
 
+  # TO DO - REFACTOR THIS ISH
   def show
-    @my_past_listings = current_user.my_past_listings
-    @my_past_stays = current_user.my_past_stays
-    @active_listings = current_user.active_listings
-    @all_active_bought_listings = current_user.all_active_bought_listings
+    if current_user.id == params[:id].to_i
+      @my_past_listings = current_user.my_past_listings
+      @my_past_stays = current_user.my_past_stays
+      @active_listings = current_user.active_listings
+      @all_active_bought_listings = current_user.all_active_bought_listings
+    else
+      @other_user = User.find(params[:id])
+      @my_past_listings = @other_user.my_past_listings
+      @my_past_stays = @other_user.my_past_stays
+      @active_listings = @other_user.active_listings
+      @all_active_bought_listings = @other_user.all_active_bought_listings
+    end
   end
 
   def analytics
