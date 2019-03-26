@@ -27,6 +27,7 @@
           <% if logged_in? %>
           <a class="nav-item nav-link" href="<%= listings_path %>">Listings</a>
           <a class="nav-item nav-link" href="<%=user_path(current_user.id) %>">My Profile</a>
+          <a class="nav-item nav-link" href="<%= "/users/#{current_user.id}/analytics" %>">My Analytics</a>
           <a class="nav-item nav-link" href="<%= new_listing_path %>">Create New Listing</a>
           <a class="nav-item nav-link" href="<%= logout_path %> ">Log Out</a>
           <% else %>
