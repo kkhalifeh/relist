@@ -28,11 +28,9 @@
     <ul><%= @listing.check_out %></ul>
     <h3>Description</h3>
     <ul><%= @listing.description %></ul>
-    <%# <% if @listing.photos.attached? %>
-      <!-- <h3>Photos</h3> -->
-      <%# <% @listing.photos.each do |photo| %>
-        <%# <%= image_tag photo, size: "500x300" %>
-      <%# <% end %>
-    <%# <% end %>
+    <% if @listing.photo.attached? %>
+      <h3>Photo</h3>
+        <%= image_tag @listing.photo, size: "500x300" %>
+    <% end %>
     </ol>
 </div>
