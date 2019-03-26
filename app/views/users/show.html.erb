@@ -1,7 +1,14 @@
 USER PROFILE
 
+<%# TO DO - REFACTOR %>
+
+<% if current_user.id == params[:id].to_i %>
 <p>Name: <%= current_user.name %></p>
 <p>Email: <%= current_user.email %></p>
+<% else %>
+<p>Name: <%= @other_user.name %></p>
+<p>Email: <%= @other_user.email %></p>
+<%  end %>
 
 <h1>My Listings</h1>
 
