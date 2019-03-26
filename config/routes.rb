@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   resources :sales, only: [:index]
-  resources :users, only: [:index, :new, :create, :show]
+  resources :users, only: [:index, :new, :create, :show, :edit, :update]
 
   resources :listings do
     resources :sales, only: [:create]
