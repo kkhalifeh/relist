@@ -10,7 +10,7 @@ class Listing < ApplicationRecord
   end
 
   def self.check_in_date(search)
-    where('check_in > ?', search)
+    where('check_in >= ?', search)
   end
 
   #ACTIVE STORAGE ASSOCIATION TO ADD IMAGES
