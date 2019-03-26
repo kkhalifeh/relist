@@ -35,3 +35,14 @@ require 'faker'
 #   t.datetime "created_at", null: false
 #   t.datetime "updated_at", null: false
 # end
+
+# listings = 60.times do
+#   value = Faker::Number.number(4)
+#   price = Faker::Number.number(3)
+#   guest = rand(1...6)
+#   seller_id = rand(1...30)
+#   title = Faker::Address.city
+#   check_in = Faker::Date.backward(30)
+#   check_out = Faker::Date.backward(20)
+#   description = Faker::Marketing.buzzwords
+#   Listing.create({value: value, price: price, guest: guest, seller_id: seller_id, title: "#{title}", check_in: check_in, check_out: check_out, description: "#{description}"}) end

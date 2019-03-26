@@ -4,7 +4,7 @@
   <h2><%= @listing.title %> - <%= "$#{@listing.price}" %></h2>
 </div>
 
-<% if @listing.seller_id == current_user.id && !@listing.sale && @listing.check_out < Time.now.strftime('%a, %d %b %Y').to_date %>
+<% if @listing.seller_id == current_user.id && !@listing.sale && @listing.check_out > Time.now.strftime('%a, %d %b %Y').to_date %>
   <h4><%= button_to 'Edit', edit_listing_path(@listing), {method: :get} %> <%= button_to 'Delete', @listing, method: :delete, data: { confirm: 'Confirm delete?' } %>
 <% end %>
 <% if !@listing.sale %>
