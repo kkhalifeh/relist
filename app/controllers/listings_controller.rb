@@ -1,9 +1,20 @@
 class ListingsController < ApplicationController
   before_action :set_listing, only: [:show, :edit, :update, :destroy]
+  before_action :past_listing?, only: :edit
   before_action :authorize_edit, only: :edit
 
+  def past_listing?
+    if Listing.find(params[:id]).check_in < Time.now.strftime('%a, %d %b %Y').to_date
+      flash[:notice] = "You are not authorized to edit a past listing"
+      redirect_to @listing
+    end
+  end
+
   def authorize_edit
-    authorize! :edit, @listing
+    if Listing.find(params[:id]).seller_id != current_user.id
+      flash[:notice] = "You are not authorized to edit another user's listing"
+      redirect_to @listing
+    end
   end
 
   require 'will_paginate/array'
