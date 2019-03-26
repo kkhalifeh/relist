@@ -1,5 +1,13 @@
 class UsersController < ApplicationController
   skip_before_action :authorized, only: [:new, :create]
+  before_action :authorize_analytics, only: :analytics
+
+  def authorize_analytics
+    if current_user != User.find(params[:id])
+      flash[:notice] = "You are not authorized to view this user's analytics."
+      redirect_to listings_path
+    end
+  end
 
   def index
   end
