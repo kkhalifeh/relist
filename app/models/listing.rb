@@ -45,7 +45,7 @@ class Listing < ApplicationRecord
   end
 
   def check_in_and_check_out_cannot_be_same_day
-    if self.check_in = self.check_out
+    if self.check_in == self.check_out
       errors.add(:check_in, "date cannot be same as check out")
     end
   end
