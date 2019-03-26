@@ -9,6 +9,7 @@ class User < ApplicationRecord
 
 
   validates :email, uniqueness: { case_sensitive: false }
+  validates :email, format: { with: URI::MailTo::EMAIL_REGEXP, message: "only allows valid emails" }
   # validates :encrypted_password, :confirmation => true #encrypted_password_confirmation attr
   # validates_length_of :encrypted_password, :in => 6..20, :on => :create
 
@@ -99,6 +100,16 @@ class User < ApplicationRecord
     discounts.inject do |sum, discount|
       sum += discount
     end
+  end
+
+  def average_guests
+    all_my_guests = all_my_stays.map do |listing|
+      listing.guest
+    end
+    sum_guests = all_my_guests.inject do |sum, guest|
+      sum += guest
+    end
+    sum_guests.to_f / all_my_guests.length
   end
 
   private

@@ -34,6 +34,7 @@ class UsersController < ApplicationController
     @largest_discount = current_user.largest_discount
     @average_discount = current_user.average_discount
     @total_saved = current_user.total_saved
+    @average_guests = current_user.average_guests
     render :analytics
   end
 
