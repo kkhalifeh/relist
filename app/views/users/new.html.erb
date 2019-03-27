@@ -1,13 +1,13 @@
 <body class="signup-background">
 <div class="signup-box">
-<h1>Create account</h1>
+  <h1>Create account</h1>
 
-<%= bootstrap_form_for @user do |f| %>
-<%= f.text_field :name %>
-<%= f.email_field :email %>
-<%= f.password_field :password %>
+  <%= bootstrap_form_for @user do |f| %>
+    <%= f.text_field :name %>
+    <%= f.email_field :email %>
+    <%= f.password_field :password %>
 
-<%= f.submit "Submit" %>
-<% end %>
+    <%= f.submit "Submit" %>
+  <% end %>
 </div>
 </body>

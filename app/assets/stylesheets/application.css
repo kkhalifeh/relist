@@ -124,3 +124,21 @@ p.book-button{
   position: relative;
   bottom: 0;
 }
+
+/******************** UPDATE PROFILE PAGE *************************/
+
+.update-profile-background {
+  background-color: #FEF5E7;
+}
+
+.update-profile-box {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 40%;
+  background-color: white;
+  width: 20%;
+  margin-top: 120px;
+  padding: 20px;
+}
