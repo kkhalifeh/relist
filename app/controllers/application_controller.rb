@@ -13,6 +13,7 @@
 class ApplicationController < ActionController::Base
   before_action :authorized #lock down this whole app
   helper_method :current_user, :logged_in? #i can call current_user from a view
+  rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
 
   def current_user
     # User.find would throw an error if we cannot find the user
@@ -29,5 +30,18 @@ class ApplicationController < ActionController::Base
     redirect_to login_path unless logged_in?
   end
 
+  def index
+    flash.notice = 'No page found at that address'
+    redirect_to listings_path
+  end
+
+  private
+
+  def record_not_found
+    #for custom error page use comment below
+    # render file: "#{Rails.root}/app/views/errors/404.erb", layout: true, status: :not_found
+    flash.notice = 'No page found at that address'
+    redirect_to listings_path
+  end
 
 end
