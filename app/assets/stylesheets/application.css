@@ -117,7 +117,9 @@ div.w3-center img{
   width: 100%;
   height: 510px;
 }
-
+td.index-image img{
+  width: 100%;
+}
 p.value{
   text-decoration: line-through;
   color: red;

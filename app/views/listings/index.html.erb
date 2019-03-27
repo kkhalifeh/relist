@@ -33,7 +33,7 @@
         <% if listing.sale == nil %>
         <tr>
           <td><%= link_to listing.title, listing %></td>
-          <td class="value"><%= "$#{listing.value}" %></td> 
+          <td class="value"><%= "$#{listing.value}" %></td>
           <td><%= "$#{listing.price}" %></td>
           <td><%= listing.guest %></td>
           <td><%= "#{listing.seller.name} (#{listing.seller.email})" %></td>
@@ -41,9 +41,9 @@
           <td><%= listing.check_out %></td>
           <td><%= listing.description.truncate(27) %></td>
           <% if listing.photo.attached? %>
-          <td><%= image_tag listing.photo, size: "300x200" %> <%= button_to "Book", listing_sales_path(listing), {:class => "btn-primary btn-block" } %> </td>
+          <td class="index-image"><%= image_tag listing.photo%> <%= button_to "Book", listing_sales_path(listing), {:class => "btn-primary btn-block" } %> </td>
           <% else %>
-          <td><%= image_tag src="https://semantic-ui.com/images/wireframe/image.png", size: "300x200" %> <%= button_to "Book", listing_sales_path(listing), {:class => "btn-primary btn-block" } %> </td>
+          <td class="index-image"><%= image_tag src="https://semantic-ui.com/images/wireframe/image.png" %> <%= button_to "Book", listing_sales_path(listing), {:class => "btn-primary btn-block" } %> </td>
           <% end %>
           <% end %>
         </tr>
