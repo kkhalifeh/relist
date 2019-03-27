@@ -1,9 +1,8 @@
 <body class="new-listing-background">
 <div class="new-listing-form">
   <h1>Create a listing</h1>
-  <div>
+  <br>
   <%= bootstrap_form_for @listing, layout: :horizontal, label_col: "col-sm-4", control_col: "col-sm-8" do |f| %>
-
     <%= f.number_field :value %>
     <%= f.number_field :price %>
     <%= f.number_field :guest %>
@@ -16,6 +15,5 @@
       <%= f.submit %>
     <% end %>
   <% end %>
-  </div>
 </div>
 </body>
