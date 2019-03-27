@@ -30,10 +30,11 @@ class ApplicationController < ActionController::Base
     redirect_to login_path unless logged_in?
   end
 
-  def index
-    flash.notice = 'No page found at that address'
-    redirect_to listings_path
-  end
+  #Trying to account for bad routes
+  # def index
+  #   flash.notice = 'No page found at that address'
+  #   redirect_to listings_path
+  # end
 
   private
 
