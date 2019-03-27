@@ -38,7 +38,10 @@ class ApplicationController < ActionController::Base
   private
 
   def record_not_found
-    render file: "#{Rails.root}/app/views/errors/404.erb", layout: true, status: :not_found
+    #for custom error page use comment below
+    # render file: "#{Rails.root}/app/views/errors/404.erb", layout: true, status: :not_found
+    flash.notice = 'No page found at that address'
+    redirect_to listings_path
   end
 
 end
