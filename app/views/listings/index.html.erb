@@ -45,7 +45,7 @@
           <% else %>
           <td><%= image_tag src="https://semantic-ui.com/images/wireframe/image.png", size: "300x200" %></td>
           <% end %>
-          <td><%= button_to "Book", listing_sales_path(listing) %></td>
+          <td><%= button_to "Book", listing_sales_path(listing), {:class => "btn btn-primary" } %></td>
           <% end %>
         </tr>
       <% end %>
