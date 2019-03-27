@@ -1,146 +1,176 @@
 <h4><%= flash[:notice] %></h4>
 
-<h2>User Profile</h2>
+<h2 class="user-profile-header">User Profile</h2>
 
-<p>Name: <%= @user.name %></p>
-<p>Email: <%= @user.email %></p>
+<div class="user-display">
+  <div class="profile-image">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRJ3wpVMabV3NjszpbcmckzH0JntyZeRG-NlPwLaYESyCOJrYN7"/>
+  </div>
 
-<% if current_user == User.find(params[:id]) %>
-  <%= button_to 'Update profile', edit_user_path, method: :get %>
-<% end %>
+  <div class="profile">
+    <p>Name: <%= @user.name %></p>
+    <p>Email: <%= @user.email %></p>
 
-<h1>Listings</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Price</th>
-      <th>Value</th>
-      <th>Check In Date</th>
-      <th>Check Out Date</th>
-      <th>Sold</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @user.active_listings.each do |listing| %>
-      <tr>
-        <td><%= link_to listing.title, listing %></td>
-        <td><%= "$#{listing.price}" %></td>
-        <td><%= "$#{listing.value}" %></td>
-        <td><%= listing.check_in %></td>
-        <td><%= listing.check_out %></td>
-        <td><% if listing.status %> <%= "\u2713" %> <%else%> <%= " " %> <% end  %></td>
-        <%# <% if listing.photos.attached? %>
-            <%# <!-- <td><%= image_tag listing.photos.first, size: "100x70" %>
-        <%# <% end %>
-        <td><%= link_to 'Edit', edit_listing_path(listing) %> | <%= link_to 'Delete', listing, method: :delete, data: { confirm: 'Are you sure?' } %> </td>
-      </tr>
+    <% if current_user == User.find(params[:id]) %>
+      <%= button_to 'Update profile', edit_user_path, method: :get %>
     <% end %>
-  </tbody>
-</table>
+  </div>
+
+  <div class="data-wrapper">
+    <h3>Listings</h3>
+    
+    <% if @user.active_listings.length != 0 %>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Title</th>
+            <th>Price</th>
+            <th>Value</th>
+            <th>Check In Date</th>
+            <th>Check Out Date</th>
+            <th>Sold</th>
+            <th colspan="3"></th>
+          </tr>
+        </thead>
 
 
-<% if current_user == User.find(params[:id]) %>
+        <tbody>
+          <% @user.active_listings.each do |listing| %>
+            <tr>
+              <td><%= link_to listing.title, listing %></td>
+              <td><%= "$#{listing.price}" %></td>
+              <td><%= "$#{listing.value}" %></td>
+              <td><%= listing.check_in %></td>
+              <td><%= listing.check_out %></td>
+              <td><% if listing.status %> <%= "\u2713" %> <%else%> <%= " " %> <% end  %></td>
+              <%# <% if listing.photos.attached? %>
+                  <%# <!-- <td><%= image_tag listing.photos.first, size: "100x70" %>
+              <%# <% end %>
+              <td><%= link_to 'Edit', edit_listing_path(listing) %> | <%= link_to 'Delete', listing, method: :delete, data: { confirm: 'Are you sure?' } %> </td>
+            </tr>
+          <% end %>
+        </tbody>
+    </table>
+  <% else %>
+    <%= button_to "Create a Listing", new_listing_path, method: :get%>
+  <% end %>
 
-<h1>Trips</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Price</th>
-      <th>Value</th>
-      <th>Check In Date</th>
-      <th>Check Out Date</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+    <% if current_user == User.find(params[:id]) %>
 
-  <tbody>
-    <% @user.active_trips.each do |listing| %>
-      <tr>
-        <td><%= link_to listing.title, listing %></td>
-        <td><%= "$#{listing.price}" %></td>
-        <td><%= "$#{listing.value}" %></td>
-        <td><%= listing.check_in %></td>
-        <td><%= listing.check_out %></td>
-        <%# <% if listing.photos.attached? %>
-            <%# <!-- <td><%= image_tag listing.photos.first, size: "100x70" %>
-        <%# <% end %>
-      </tr>
+    <h3 class="user-table-header">Trips</h3>
+
+    <% if @user.active_trips.length != 0 %>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Title</th>
+            <th>Price</th>
+            <th>Value</th>
+            <th>Check In Date</th>
+            <th>Check Out Date</th>
+            <th colspan="3"></th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @user.active_trips.each do |listing| %>
+            <tr>
+              <td><%= link_to listing.title, listing %></td>
+              <td><%= "$#{listing.price}" %></td>
+              <td><%= "$#{listing.value}" %></td>
+              <td><%= listing.check_in %></td>
+              <td><%= listing.check_out %></td>
+              <%# <% if listing.photos.attached? %>
+                  <%# <!-- <td><%= image_tag listing.photos.first, size: "100x70" %>
+              <%# <% end %>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    <% else %>
+      <%= button_to "Buy a Listing!", listings_path, method: :get%>
     <% end %>
-  </tbody>
-</table>
 
-<h1>Past Listings</h1>
+    <h3 class="user-table-header">Past Listings</h3>
 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Price</th>
-      <th>Value</th>
-      <th>Check In Date</th>
-      <th>Check Out Date</th>
-      <th>Sold</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+    <% if @user.past_listings.length != 0 %>
 
-  <tbody>
-    <% @user.past_listings.each do |listing| %>
-      <tr>
-        <td><%= link_to listing.title, listing %></td>
-        <td><%= "$#{listing.price}" %></td>
-        <td><%= "$#{listing.value}" %></td>
-        <td><%= listing.check_in %></td>
-        <td><%= listing.check_out %></td>
-        <td><% if listing.status %> <%= "\u2713" %> <%else%> <%= " " %> <% end  %></td>
-        <%# <% if listing.photos.attached? %>
-            <%# <!-- <td><%= image_tag listing.photos.first, size: "100x70" %>
-        <%# <% end %>
-      </tr>
+      <table>
+        <thead>
+          <tr>
+            <th>Title</th>
+            <th>Price</th>
+            <th>Value</th>
+            <th>Check In Date</th>
+            <th>Check Out Date</th>
+            <th>Sold</th>
+            <th colspan="3"></th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @user.past_listings.each do |listing| %>
+            <tr>
+              <td><%= link_to listing.title, listing %></td>
+              <td><%= "$#{listing.price}" %></td>
+              <td><%= "$#{listing.value}" %></td>
+              <td><%= listing.check_in %></td>
+              <td><%= listing.check_out %></td>
+              <td><% if listing.status %> <%= "\u2713" %> <%else%> <%= " " %> <% end  %></td>
+              <%# <% if listing.photos.attached? %>
+                  <%# <!-- <td><%= image_tag listing.photos.first, size: "100x70" %>
+              <%# <% end %>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    <% else %>
+      <p>No Past Listings</p>
     <% end %>
-  </tbody>
-</table>
 
-<br>
+    <br>
 
-<h1>Past Trips</h1>
+    <h3 class="user-table-header"> Past Trips</h3>
 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Price</th>
-      <th>Value</th>
-      <th>Check In Date</th>
-      <th>Check Out Date</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+    <% if @user.past_trips.length != 0 %>
 
-  <tbody>
-    <% @user.past_trips.each do |listing| %>
+      <table>
+        <thead>
+          <tr>
+            <th>Title</th>
+            <th>Price</th>
+            <th>Value</th>
+            <th>Check In Date</th>
+            <th>Check Out Date</th>
+            <th colspan="3"></th>
+          </tr>
+        </thead>
 
-      <tr>
-        <td><%= link_to listing.title, listing %></td>
-        <td><%= "$#{listing.price}" %></td>
-        <td><%= "$#{listing.value}" %></td>
-        <td><%= listing.check_in %></td>
-        <td><%= listing.check_out %></td>
-        <%# <% if listing.photos.attached? %>
-            <%# <!-- <td><%= image_tag listing.photos.first, size: "100x70" %>
-        <%# <% end %>
+        <tbody>
+          <% @user.past_trips.each do |listing| %>
 
-      </tr>
+            <tr>
+              <td><%= link_to listing.title, listing %></td>
+              <td><%= "$#{listing.price}" %></td>
+              <td><%= "$#{listing.value}" %></td>
+              <td><%= listing.check_in %></td>
+              <td><%= listing.check_out %></td>
+              <%# <% if listing.photos.attached? %>
+                  <%# <!-- <td><%= image_tag listing.photos.first, size: "100x70" %>
+              <%# <% end %>
+
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    <% else %>
+      <p>No Past Trips</p>
     <% end %>
-  </tbody>
-</table>
+    <br>
 
-<br>
-
-<% end %>
+    <% end %>
+  </div>
+</div>
