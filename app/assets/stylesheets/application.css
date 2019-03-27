@@ -12,10 +12,13 @@
  *
  *= require_tree .
  *= require_self
-
+ *= require rails_bootstrap_forms
 
  */
 
+ html, body {
+   height: 100%;
+ }
 
 .login-background {
   background-color: lightblue;
@@ -27,4 +30,30 @@
   width: 150px;
   display: block;
 
+}
+
+
+
+
+/******************** NEW LISTING FORM *************************/
+
+label.required:after {
+  content:" *";
+}
+
+.new-listing-form {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 60%;
+  background-color: white;
+  width: 30%;
+  height: 60%;
+  margin-top: 10%;
+  opacity: 0.9;
+}
+
+.new-listing-background {
+  background-image: url("http://cdn.sandals.com/sandals/v12/images/resorts/slu/home/main-slider/beach-ocean-beach-chairs.jpg");
 }

@@ -1,3 +1,30 @@
-<h1>New Listing</h1>
-
-<%= render 'form', holiday: @listing %>
+<body class="new-listing-background">
+<div class="new-listing-form">
+  <h1>Create a listing</h1>
+  <div>
+  <%= bootstrap_form_for @listing, layout: :horizontal, label_col: "col-sm-4", control_col: "col-sm-8" do |f| %>
+    <% if @listing.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@listing.errors.count, "error") %> prohibited this listing from being saved:</h2>
+        <ul>
+        <% @listing.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+    <%= f.number_field :value %>
+    <%= f.number_field :price %>
+    <%= f.number_field :guest %>
+    <%= f.text_field :title %>
+    <%= f.date_select :check_in, data:{ provide:'datepicker' } %>
+    <%= f.date_select :check_out, data:{ provide:'datepicker' } %>
+    <%= f.text_area :description %>
+    <%= f.file_field :photo %>
+    <%= f.form_group do %>
+      <%= f.submit %>
+    <% end %>
+  <% end %>
+  </div>
+</div>
+</body>
