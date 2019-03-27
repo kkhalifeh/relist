@@ -1,6 +1,6 @@
 class Listing < ApplicationRecord
   #ASSOCIATIONS
-  has_one :sale
+  has_one :sale, dependent: :destroy
   # belongs_to :category
   belongs_to :seller, :class_name => 'User', :foreign_key => 'seller_id'
 

@@ -55,8 +55,7 @@
 </div>
 
 <br>
-<% unless @listings.empty? %>
-  <%= will_paginate @listings %>
-<% end %>
+
+<%= will_paginate @listings %>
 <%= page_entries_info @listings %> <br>
 <br>

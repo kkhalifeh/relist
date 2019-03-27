@@ -17,7 +17,7 @@ class ListingsController < ApplicationController
     end
   end
 
-  require 'will_paginate/array'
+  # require 'will_paginate/array'
 
   # GET /listings
   def index

@@ -7,42 +7,25 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 require 'faker'
-#
+
 # users = 30.times do
 #   name = Faker::Name.name
 #   email = Faker::Internet.email
 #   User.create({name: "#{name}", email: "#{email}"}) end
 
 
-# categories = Category.create([{ label: 'City Hotel'},{ label: 'City and shop'},{ label: 'Cruise'},{ label: 'AirBNB'}, { label: 'Spa & Retreats'}, { label: 'Honeymoon'}])
-
-# listings = 60.times do
-#   value = Faker::Number.number(4)
-#   price = Faker::Number.number(3)
-#   guest = rand(1...6)
-#   seller_id = rand(1...30)
-#   title = Faker::Address.city
-#   check_in = Faker::Date.forward(20)
-#   check_out = Faker::Date.forward(30)
-#   description = Faker::Marketing.buzzwords
-#   Listing.create({value: value, price: price, guest: guest, seller_id: seller_id, title: "#{title}", check_in: check_in, check_out: check_out, description: "#{description}"}) end
-
-#
-# create_table "users", force: :cascade do |t|
-#   t.string "name"
-#   t.string "email"
-#   t.integer "age"
-#   t.datetime "created_at", null: false
-#   t.datetime "updated_at", null: false
+# Listing.destroy_all
+# 50.times do
+# listing = Listing.create({
+#     value: Faker::Number.number(4),
+#     price: Faker::Number.number(3),
+#     guest: rand(1...6),
+#     seller_id: rand(1...30),
+#     title: Faker::Address.city,
+#     check_in: Faker::Date.forward(20),
+#     check_out: Faker::Date.forward(30),
+#     description: Faker::Marketing.buzzwords
+#         })
+#   img = rand(1...18)
+#   listing.photo.attach(io: File.open("app/assets/images/img#{img}.jpg"), filename: "img#{img}.jpg", content_type: 'image/jpg')
 # end
-
-listings = 60.times do
-  value = Faker::Number.number(4)
-  price = Faker::Number.number(3)
-  guest = rand(1...6)
-  seller_id = rand(1...30)
-  title = Faker::Address.city
-  check_in = Faker::Date.backward(30)
-  check_out = Faker::Date.backward(20)
-  description = Faker::Marketing.buzzwords
-  Listing.create({value: value, price: price, guest: guest, seller_id: seller_id, title: "#{title}", check_in: check_in, check_out: check_out, description: "#{description}"}) end
