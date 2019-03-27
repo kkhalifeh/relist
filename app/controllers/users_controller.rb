@@ -59,16 +59,16 @@ class UsersController < ApplicationController
   # TO DO - REFACTOR THIS ISH
   def show
     if current_user.id == params[:id].to_i
-      @my_past_listings = current_user.my_past_listings
-      @my_past_stays = current_user.my_past_stays
+      @past_listings = current_user.past_listings
+      @past_trips = current_user.past_trips
       @active_listings = current_user.active_listings
-      @all_active_bought_listings = current_user.all_active_bought_listings
+      @active_trips = current_user.active_trips
     else
       @other_user = User.find(params[:id])
-      @my_past_listings = @other_user.my_past_listings
-      @my_past_stays = @other_user.my_past_stays
+      @past_listings = @other_user.past_listings
+      @past_trips = @other_user.past_trips
       @active_listings = @other_user.active_listings
-      @all_active_bought_listings = @other_user.all_active_bought_listings
+      @active_trips = @other_user.active_trips
     end
   end
 

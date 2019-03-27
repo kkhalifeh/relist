@@ -67,7 +67,7 @@
   </thead>
 
   <tbody>
-    <% @all_active_bought_listings.each do |listing| %>
+    <% @active_trips.each do |listing| %>
       <tr>
         <td><%= link_to listing.title, listing %></td>
         <td><%= "$#{listing.price}" %></td>
@@ -98,7 +98,7 @@
   </thead>
 
   <tbody>
-    <% @my_past_listings.each do |listing| %>
+    <% @past_listings.each do |listing| %>
       <tr>
         <td><%= link_to listing.title, listing %></td>
         <td><%= "$#{listing.price}" %></td>
@@ -131,7 +131,7 @@
   </thead>
 
   <tbody>
-    <% @my_past_stays.each do |listing| %>
+    <% @past_trips.each do |listing| %>
 
       <tr>
         <td><%= link_to listing.title, listing %></td>
