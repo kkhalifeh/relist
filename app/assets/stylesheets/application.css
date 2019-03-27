@@ -46,12 +46,12 @@ label.required:after {
   align-items: center;
   flex-direction: column;
   justify-content: center;
-  margin-left: 60%;
+  margin-left: 50%;
   background-color: white;
-  width: 30%;
-  height: 60%;
-  margin-top: 10%;
+  width: 40%;
+  margin-top: 100px;
   opacity: 0.9;
+  padding: 15px;
 }
 
 .new-listing-background {
