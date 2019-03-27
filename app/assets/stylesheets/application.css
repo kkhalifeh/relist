@@ -103,11 +103,14 @@ h1.class-one{
 /******************** LISTING VIEW PAGE *************************/
 div.w3-container{
   padding-top: 30px;
+  background-color: #f2f2f2;
 }
 
 div.w3-left{
+  text-align: justify;
   padding-right: 10px;
   padding-left: 10px;
+  text-align: center;
 }
 
 div.w3-center img{
@@ -118,9 +121,20 @@ div.w3-center img{
 p.value{
   text-decoration: line-through;
   color: red;
+  font-size: 20px;
+}
+
+p.price{
+  font-size: 25px;
+  font-style: bold;
+}
+
+td.value{
+  text-decoration: line-through;
+  color: red;
 }
 
 p.book-button{
-  position: relative;
-  bottom: 0;
+  position:relative;
+  margin-top:110px;
 }

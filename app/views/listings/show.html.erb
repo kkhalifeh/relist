@@ -2,12 +2,9 @@
 <div class="w3-container">
   <div class="w3-row">
     <div class="w3-col s4 w3-left">
-        <h4>Seller</h4>
-        <p><%= "#{@listing.seller.name} (#{@listing.seller.email})" %></p>
-        <h4>Value(Original Price)</h4>
+        <p class="price"><%= "#{@listing.title} - $#{@listing.price}" %></p>
+        <h4>Value (Original Price)</h4>
         <p class="value"><%= "$#{@listing.value}" %></p>
-        <h4>Price</h4>
-        <p><%= "$#{@listing.price}"  %></p>
         <h4>Number of Guests</h4>
         <p><%= @listing.guest %></p>
         <h4>Check In Date</h4>
@@ -32,5 +29,7 @@
       <% end %>
   </div>
 </div>
+<h4>Seller</h4>
+<p><%= "#{@listing.seller.name} (#{@listing.seller.email})" %></p>
 <h4>Description</h4>
 <p><%= @listing.description %></p>
