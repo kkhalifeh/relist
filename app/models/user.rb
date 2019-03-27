@@ -62,12 +62,9 @@ class User < ApplicationRecord
 
   def total_sales
     all_sales = Sale.where(seller_id: self.id)
-    all_sold_listings_price = all_sales.map do |stay|
-      stay.listing.price
-    end
-    all_sold_listings_price.inject do |sum, price|
-      sum += price
-    end
+    all_sales.inject(0) {
+      |sum, sale| sum + sale.listing.price
+    }
   end
 
   def total_spent
