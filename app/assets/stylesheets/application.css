@@ -80,27 +80,13 @@
 
 /******************** HOMEPAGE *************************/
 
-label.required:after {
-  content:" *";
-}
-
-.search-listing-form {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  justify-content: center;
-  width: 40%;
-  margin-top: 100px;
-  opacity: 0.9;
-  padding: 15px;
-}
-
 h1.class-one{
   color: white;
 }
 
 .home-background {
   background-image: url("https://cdn.cnn.com/cnnnext/dam/assets/161215123358-3-lodge-verbier-full-169.jpg");
+  background-size: 100%;
 }
 
 /******************** LISTING VIEW PAGE *************************/
