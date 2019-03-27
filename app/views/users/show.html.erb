@@ -2,15 +2,8 @@
 
 <h2>User Profile</h2>
 
-<%# TO DO - REFACTOR %>
-
-<% if current_user.id == params[:id].to_i %>
-<p>Name: <%= current_user.name %></p>
-<p>Email: <%= current_user.email %></p>
-<% else %>
-<p>Name: <%= @other_user.name %></p>
-<p>Email: <%= @other_user.email %></p>
-<%  end %>
+<p>Name: <%= @user.name %></p>
+<p>Email: <%= @user.email %></p>
 
 <% if current_user == User.find(params[:id]) %>
   <%= button_to 'Update profile', edit_user_path, method: :get %>
@@ -32,7 +25,7 @@
   </thead>
 
   <tbody>
-    <% @active_listings.each do |listing| %>
+    <% @user.active_listings.each do |listing| %>
       <tr>
         <td><%= link_to listing.title, listing %></td>
         <td><%= "$#{listing.price}" %></td>
@@ -67,7 +60,7 @@
   </thead>
 
   <tbody>
-    <% @active_trips.each do |listing| %>
+    <% @user.active_trips.each do |listing| %>
       <tr>
         <td><%= link_to listing.title, listing %></td>
         <td><%= "$#{listing.price}" %></td>
@@ -98,7 +91,7 @@
   </thead>
 
   <tbody>
-    <% @past_listings.each do |listing| %>
+    <% @user.past_listings.each do |listing| %>
       <tr>
         <td><%= link_to listing.title, listing %></td>
         <td><%= "$#{listing.price}" %></td>
@@ -131,7 +124,7 @@
   </thead>
 
   <tbody>
-    <% @past_trips.each do |listing| %>
+    <% @user.past_trips.each do |listing| %>
 
       <tr>
         <td><%= link_to listing.title, listing %></td>

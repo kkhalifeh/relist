@@ -56,29 +56,12 @@ class UsersController < ApplicationController
      end
   end
 
-  # TO DO - REFACTOR THIS ISH
   def show
-    if current_user.id == params[:id].to_i
-      @past_listings = current_user.past_listings
-      @past_trips = current_user.past_trips
-      @active_listings = current_user.active_listings
-      @active_trips = current_user.active_trips
-    else
-      @other_user = User.find(params[:id])
-      @past_listings = @other_user.past_listings
-      @past_trips = @other_user.past_trips
-      @active_listings = @other_user.active_listings
-      @active_trips = @other_user.active_trips
-    end
+    @user = User.find(params[:id])
+
   end
 
   def analytics
-    @total_sales = current_user.total_sales
-    @total_spent = current_user.total_spent
-    @largest_discount = current_user.largest_discount
-    @average_discount = current_user.average_discount
-    @total_saved = current_user.total_saved
-    @average_guests = current_user.average_guests
     render :analytics
   end
 

@@ -3,14 +3,14 @@
 <h1> <%= "#{current_user.name}'s Analytics" %> </h1>
 
 <label>Total Sales</label>
-<%= @total_sales %><br>
+<%= current_user.total_sales %><br>
 <label>Total Spent</label>
-<%= @total_spent %><br>
+<%= current_user.total_spent %><br>
 <label>Largest Discount</label>
-<%= @largest_discount %><br>
+<%= current_user.largest_discount %><br>
 <label>Average Discount</label>
-<%= @average_discount %><br>
+<%= current_user.average_discount %><br>
 <label>Total Saved</label>
-<%= @total_saved %>
+<%= current_user.total_saved %>
 <label>Average Guests</label>
- <%= @average_guests %>
+ <%= current_user.average_guests %>
