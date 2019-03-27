@@ -11,7 +11,7 @@ require 'faker'
 # users = 30.times do
 #   name = Faker::Name.name
 #   email = Faker::Internet.email
-#   User.create({name: "#{name}", email: "#{email}"}) end
+#   User.create({name: "#{name}", email: "#{email}", password: "password"}) end
 
 
 # Listing.destroy_all

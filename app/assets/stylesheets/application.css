@@ -12,11 +12,19 @@
  *
  *= require_tree .
  *= require_self
- */
- *= require_tree .
- *= require_self
 
- *= require blueimp-gallery
- *= require bootstrap-image-gallery
- *= require blueimp-gallery-indicator
- *= require blueimp-gallery-video
+
+ */
+
+
+.login-background {
+  background-color: lightblue;
+  background-image: url("app/assets/images/img18.jpg");
+}
+
+.login-box, textarea input {
+  margin: 0 auto;
+  width: 150px;
+  display: block;
+
+}
