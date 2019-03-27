@@ -1,16 +1,43 @@
 <p><h4><%= flash[:notice] %></h4></p>
 
-<h1> <%= "#{current_user.name}'s Analytics" %> </h1>
-
-<label>Total Sales</label>
-<%= current_user.total_sales %><br>
-<label>Total Spent</label>
-<%= current_user.total_spent %><br>
-<label>Largest Discount</label>
-<%= current_user.largest_discount %><br>
-<label>Average Discount</label>
-<%= current_user.average_discount %><br>
-<label>Total Saved</label>
-<%= current_user.total_saved %>
-<label>Average Guests</label>
- <%= current_user.average_guests %>
+<h1 align="center"> <%= "#{current_user.name}'s Analytics" %> </h1>
+<div class="container">
+<table class="table table-hover table-dark">
+  <style>
+  table {
+  text-align: center;
+  vertical-align: center;
+  font-size: 25px;
+  }
+  th {
+    width:300px;
+    height:200px;
+  }
+  </style>
+  <br>
+  <tr>
+    <th>Total Sales
+      <br>
+      $<%= @total_sales %> </th>
+    <th>Total Spent
+      <br>
+      $<%= @total_spent %></th>
+    <th>Largest Discount
+      <br>
+      $<%= @largest_discount %>
+    </th>
+  </tr>
+  <tr>
+    <th>Average Discount
+      <br>
+      $<%= @average_discount %> </th>
+    <th>Total Saved
+      <br>
+      $<%= @total_saved %></th>
+    <th>Average Guests
+      <br>
+      <%= @average_guests %> guests
+    </th>
+  </tr>
+</div>
+</table>
