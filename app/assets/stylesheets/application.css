@@ -17,6 +17,7 @@
 
  html, body {
    height: 100%;
+   font-size: 20px;
  }
 
  /******************** SIGNUP PAGE *************************/
@@ -91,8 +92,12 @@
   padding: 15px;
 }
 
-h1.class-one{
+h1#class-one{
   color: white;
+  font-family: helvetica;
+  font-size: 60px;
+  font-weight: bold;
+  margin-top: -50px;
 }
 
 .home-background {
@@ -142,7 +147,7 @@ div.w3-right img{
   height: auto;
 }
 td.index-image img{
-  width: 700px;
+  width: 300px;
 }
 p.value{
   text-decoration: line-through;
