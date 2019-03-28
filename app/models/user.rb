@@ -73,16 +73,16 @@ class User < ApplicationRecord
 
   #Largest amount saved on a trip (as a buyer)
   def largest_discount
-    if discounts.length == 0 
+    if discounts.length == 0
       return "Buy a trip!"
-    else 
+    else
       discounts.max
     end
   end
 
   #Average discount for all trips (as a buyer)
   def average_discount
-    if discounts.length == 0 
+    if discounts.length == 0
       return "Buy a trip!"
     else
       sum_discounts = discounts.inject do |sum, discount|
@@ -94,7 +94,7 @@ class User < ApplicationRecord
 
   #Total amount saved on all bought trips
   def total_saved
-    if discounts.length == 0 
+    if discounts.length == 0
       return "Buy a trip!"
     else
       discounts.inject do |sum, discount|
@@ -114,7 +114,7 @@ class User < ApplicationRecord
       sum_guests.to_f / all_trips.length
     end
   end
-  
+
   private
 
   def current_time
