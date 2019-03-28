@@ -32,11 +32,11 @@
       <% @listings.each do |listing| %>
         <% if listing.sale == nil %>
         <tr>
-          <td><%= link_to listing.title, listing %></td>
+          <td class="clickable-link"><%= link_to listing.title, listing %></td>
           <td class="value"><%= "$#{listing.value}" %></td>
           <td><%= "$#{listing.price}" %></td>
           <td><%= listing.guest %></td>
-          <td><%= "#{listing.seller.name} (#{listing.seller.email})" %></td>
+          <td class="clickable-link"><%= link_to "#{listing.seller.name} (#{listing.seller.email})", user_path(listing.seller) %></td>
           <td><%= listing.check_in %></td>
           <td><%= listing.check_out %></td>
           <td><%= listing.description.truncate(250) %></td>

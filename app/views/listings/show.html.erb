@@ -36,7 +36,7 @@
   <div class="w3-row">
     <div class="w3-col s6 w3-left2">
         <h2>Seller</h2>
-        <p><%= link_to "#{@listing.seller.name} (#{@listing.seller.email})", user_path(@listing.seller) %></p>
+        <p class="clickable-link"><%= link_to "#{@listing.seller.name} (#{@listing.seller.email})", user_path(@listing.seller) %></p>
         <% if @listing.seller.profile_photo.attached? %>
         <%= image_tag @listing.seller.profile_photo %>
         <% else %>
