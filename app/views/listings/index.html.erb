@@ -39,7 +39,7 @@
           <td><%= "#{listing.seller.name} (#{listing.seller.email})" %></td>
           <td><%= listing.check_in %></td>
           <td><%= listing.check_out %></td>
-          <td><%= listing.description.truncate(90) %></td>
+          <td><%= listing.description.truncate(250) %></td>
           <% if listing.photo.attached? %>
           <td class="index-image"><%= image_tag listing.photo%> <%= button_to "Book", listing_sales_path(listing), {:class => "btn-primary btn-block" } %> </td>
           <% else %>
