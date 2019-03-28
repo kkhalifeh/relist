@@ -104,6 +104,7 @@ h1#class-one{
 .home-background {
   background-image: url("https://cdn.cnn.com/cnnnext/dam/assets/161215123358-3-lodge-verbier-full-169.jpg");
   background-size: 100%;
+  background-repeat: no-repeat;
 }
 
 /******************** LISTING VIEW PAGE *************************/
