@@ -41,7 +41,7 @@
         <tbody>
           <% @user.active_listings.each do |listing| %>
             <tr>
-              <td><%= link_to listing.title, listing %></td>
+              <td class="listing-title"><%= link_to listing.title, listing %></td>
               <td><%= "$#{listing.price}" %></td>
               <td><%= "$#{listing.value}" %></td>
               <td><%= listing.check_in %></td>
@@ -85,7 +85,7 @@
         <tbody>
           <% @user.active_trips.each do |listing| %>
             <tr>
-              <td><%= link_to listing.title, listing %></td>
+              <td class="listing-title"><%= link_to listing.title, listing %></td>
               <td><%= "$#{listing.price}" %></td>
               <td><%= "$#{listing.value}" %></td>
               <td><%= listing.check_in %></td>
@@ -118,7 +118,7 @@
         <tbody>
           <% @user.past_listings.each do |listing| %>
             <tr>
-              <td><%= link_to listing.title, listing %></td>
+              <td class="listing-title"><%= link_to listing.title, listing %></td>
               <td><%= "$#{listing.price}" %></td>
               <td><%= "$#{listing.value}" %></td>
               <td><%= listing.check_in %></td>
@@ -155,7 +155,7 @@
           <% @user.past_trips.each do |listing| %>
 
             <tr>
-              <td><%= link_to listing.title, listing %></td>
+              <td class="listing-title"><%= link_to listing.title, listing %></td>
               <td><%= "$#{listing.price}" %></td>
               <td><%= "$#{listing.value}" %></td>
               <td><%= listing.check_in %></td>
