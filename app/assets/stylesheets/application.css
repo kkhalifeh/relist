@@ -182,3 +182,19 @@ p.book-button{
   margin-top: 120px;
   padding: 20px;
 }
+
+/************************** User Profile ***************************/
+
+.user-profile-header {
+  margin-left: 60px;
+  margin-bottom: 25px;
+}
+
+.w3-left {
+  text-align: center;
+}
+
+td {
+  text-align: left;
+  padding: 20px;
+}
