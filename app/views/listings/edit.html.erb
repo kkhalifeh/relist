@@ -4,8 +4,8 @@
   <br>
   <%= bootstrap_form_for @listing, layout: :horizontal, label_col: "col-sm-4", control_col: "col-sm-8" do |f| %>
     <%= f.text_field :title %>
-    <%= f.number_field :value %>
-    <%= f.number_field :price %>
+    <%= f.number_field :value, prepend: "$", append: ".00" %>
+    <%= f.number_field :price, prepend: "$", append: ".00" %>
     <%= f.number_field :guest, label: 'Guests' %>
     <%= f.date_select :check_in, data:{ provide:'datepicker' } %>
     <%= f.date_select :check_out, data:{ provide:'datepicker' } %>
