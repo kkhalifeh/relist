@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :sales, only: [:index]
+
   resources :users, only: [:index, :new, :create, :show, :edit, :update]
 
   resources :listings do
@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   get '/logout', to: 'sessions#destroy'
   # delete '/logout', to: 'sessions#destroy', as: 'logout'
   get '/users/:id/analytics', to: 'users#analytics'
-  
+
   #Trying to account for bad routes
   # match "*path", to: "application#index", via: :all
 
