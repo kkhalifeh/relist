@@ -56,4 +56,11 @@
 
 <%= will_paginate @listings %>
 
-<br>
+<% if @listings.count > 1 %>
+<h5><%= "Displaying #{@listings.count} listings" %></h5>
+<% elsif @listings.count == 0 %>
+<%= "No listings found" %>
+<% else %>
+<h5><%= "Displaying #{@listings.count} listing" %></h5>
+<% end %>
+
