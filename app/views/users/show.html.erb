@@ -1,24 +1,27 @@
 
-<h4><%= flash[:notice] %></h4>
+<h2><%= flash[:notice] %></h2>
 
 <h2 class="user-profile-header">User Profile</h2>
 
 <div class="w3-row">
-  <div class="w3-col s3 w3-left">
-    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRJ3wpVMabV3NjszpbcmckzH0JntyZeRG-NlPwLaYESyCOJrYN7"/>
+  <div class="w3-col s3 w3-left-4">
+    <% if @user.profile_photo.attached? %>
+      <%= image_tag @user.profile_photo %>
+    <% else %>
+    <% end %>
   </div>
 
   <div class="w3-col s2">
-    <h4>Name: <%= @user.name %></h4>
-    <h4>Email: <%= @user.email %></h4>
+    <h3>Name: <%= @user.name %></h3>
+    <h3>Email: <%= @user.email %></h3>
 
     <% if current_user == User.find(params[:id]) %>
-      <%= button_to 'Update profile', edit_user_path, method: :get %>
+      <%= button_to 'Update profile', edit_user_path, method: :get, class: "btn btn-success" %>
     <% end %>
   </div>
 
   <div class="w3-col s7 w3-right">
-    <h4>Listings</h4>
+    <h2>Listings</h2>
     <% if @user.active_listings.length != 0 %>
       <table>
         <thead>
@@ -45,7 +48,7 @@
               <%# <% if listing.photos.attached? %>
                   <%# <!-- <td><%= image_tag listing.photos.first, size: "100x70" %>
               <%# <% end %>
-              <td><%= link_to 'Edit', edit_listing_path(listing) %> | <%= link_to 'Delete', listing, method: :delete, data: { confirm: 'Are you sure?' } %> </td>
+              <td><%= button_to 'Edit', edit_listing_path(listing), {method: :get, :class => "btn btn-success" } %> <%= button_to 'Delete', @listing, method: :delete, data: { confirm: 'Confirm delete?' }, class: "btn btn-danger" %> </td>
             </tr>
           <% end %>
         </tbody>
@@ -57,7 +60,7 @@
 
     <% if current_user == User.find(params[:id]) %>
 
-    <h4 class="user-table-header">Trips</h4>
+    <h2 class="user-table-header">Trips</h2>
 
     <% if @user.active_trips.length != 0 %>
 
@@ -92,7 +95,7 @@
       <%= button_to "Buy a Listing!", listings_path, method: :get%>
     <% end %>
 
-    <h4 class="user-table-header">Past Listings</h4>
+    <h2 class="user-table-header">Past Listings</h2>
 
     <% if @user.past_listings.length != 0 %>
 
@@ -129,7 +132,7 @@
       <p>No Past Listings</p>
     <% end %>
 
-    <h4 class="user-table-header"> Past Trips</h4>
+    <h2 class="user-table-header"> Past Trips</h2>
 
     <% if @user.past_trips.length != 0 %>
 

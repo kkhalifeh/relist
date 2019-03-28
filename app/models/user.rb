@@ -4,6 +4,9 @@ class User < ApplicationRecord
   has_many :sales
   has_many :listings
 
+  #ACTIVE STORAGE ASSOCIATION TO ADD IMAGES
+  has_one_attached :profile_photo
+
   validates :name, presence: true
   validates :password, presence: true
   validates :email, uniqueness: { case_sensitive: false }
