@@ -26,7 +26,7 @@ class Listing < ApplicationRecord
 
   #CUSTOM VALIDATOR
   validate :check_out_date_cannot_be_before_check_in
-  # validate :check_in_cannot_be_in_the_past
+  validate :check_in_cannot_be_in_the_past
   validate :maximum_value_is_80_percent_of_price
   validate :check_in_and_check_out_cannot_be_same_day
 

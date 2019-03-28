@@ -11,14 +11,14 @@ require 'faker'
 #   user.profile_photo.attach(io: File.open("app/assets/images/profile_photos/pp#{num}.png"), filename: "pp#{num}.jpg", content_type: 'image/png')
 # end
 
-#
+
 # listing1 = Listing.create({
 #     value: Faker::Number.number(4),
 #     price: Faker::Number.number(3),
 #     guest: rand(1...6),
 #     seller_id: rand(1...10),
 #     title: "Fiji Beach Resort",
-#     check_in: "Thu, 28 Mar 2019",
+#     check_in: "Fri, 29 Mar 2019",
 #     check_out: Faker::Date.forward(30),
 #     description: "The Outrigger Fiji Beach Resort is a deluxe 5 star resort with a beachfront location on Fiji's famous Coral Coast. Offering fantastic facilities including one of the largest freshwater swimming pools in the South Pacific & the stunning Bebe Spa this resort is ideal for both couples and families. Outrigger Fiji Beach Resort has a great Kids Stay and Eat Free offer for stays of 4 nights or more and is the perfect destination for a relaxing and memorable holiday."
 #         })
@@ -30,7 +30,7 @@ require 'faker'
 #       guest: rand(1...6),
 #       seller_id: rand(1...10),
 #       title: "Fiji Denarau Island",
-#       check_in: "Thu, 28 Mar 2019",
+#       check_in: "Fri, 29 Mar 2019",
 #       check_out: Faker::Date.forward(30),
 #       description: "Radisson Blu Resort Fiji Denarau Island is a Fiji holiday destination with a superb range of resort activities and facilities from water sports to golf and a range of dining and entertainment options. This Fiji accommodation offers the ideal location to base yourself for you next Fiji holiday with family, friends or as a couple. The kids will love the kid's club and kid's pool whilst adults can relax in the day spa or laze by the adult's only pool.
 #
@@ -59,7 +59,7 @@ require 'faker'
 #       guest: rand(1...6),
 #       seller_id: rand(1...10),
 #       title: "Luxury beachfront in Bali ",
-#       check_in: "Thu, 28 Mar 2019",
+#       check_in: "Fri, 29 Mar 2019",
 #       check_out: Faker::Date.forward(40),
 #       description: "Double-Six Luxury Hotel Seminyak is luxury beachfront Bali accommodation ideal for couples and honeymooners. With fantastic resort facilities such as a rooftop bar and beachfront lagoon swimming pool, Double-Six Luxury Hotel Seminyak is a intimate haven in trendy Seminyak.
 #
@@ -87,7 +87,7 @@ require 'faker'
 #       guest: rand(1...6),
 #       seller_id: rand(1...10),
 #       title: "Phuket Graceland Resort & Spa",
-#       check_in: "Thu, 28 Mar 2019",
+#       check_in: "Fri, 29 Mar 2019",
 #       check_out: Faker::Date.forward(40),
 #       description: "Phuket Graceland Resort & Spa is ideally situated, boasting a beachfront location on the famous Patong Beach. This Phuket accommodation is great for couples and families who want to be close to shopping, markets and main tourist hotspots whilst enjoying a host of onsite resort facilities such as swimming pools, day spa, kids club and restaurants.
 #       Breakfast daily
@@ -103,7 +103,7 @@ require 'faker'
 #       guest: rand(1...6),
 #       seller_id: rand(1...10),
 #       title: "Grand Princess Cruise",
-#       check_in: "Thu, 28 Mar 2019",
+#       check_in: "Fri, 29 Mar 2019",
 #       check_out: Faker::Date.forward(40),
 #       description: "The Grand Princess is designed to be your home away from home, with a range of accommodation options to suit all styles and budgets. From the most affordable Interior cabin to the luxury of the Suite and everything in between, your stay will be anything but ordinary. For larger groups who want a bit more space, there is also a 2 bedroom Family Suite.
 #       Kids, teens and families are well taken care of and Princess understand the importance of quality time. Onboard activities spark curiosity and fuel creativity while the shore excursions will engage and inspire the kids.
@@ -122,7 +122,7 @@ require 'faker'
 #       guest: rand(1...6),
 #       seller_id: rand(1...10),
 #       title: "Caribbean Cruise",
-#       check_in: "Thu, 28 Mar 2019",
+#       check_in: "Fri, 29 Mar 2019",
 #       check_out: Faker::Date.forward(40),
 #       description: "Set sail for five days and six nights in the waters of the Caribbean. Staterooms feature all the same amenities as other Interior staterooms, with a different layout — including one Twin bed, and either an upper Pullman or sofa bed. They also feature linens from our Comfort Collection, a full private bathroom and more."
 #           })
@@ -134,7 +134,7 @@ require 'faker'
 #       guest: rand(1...6),
 #       seller_id: rand(1...10),
 #       title: "Ski in Varmland, Sweden",
-#       check_in: "Thu, 28 Mar 2019",
+#       check_in: "Fri, 29 Mar 2019",
 #       check_out: Faker::Date.forward(40),
 #       description: "Branas skicenter is situated in the north of Varmland, Sweden. They offer ski possibilities for everyone. They have 27 lifts as well as two Children areas and a snow park. Branas is a family friendly skicenter and has been awarded as the best skicenter for families."
 #           })
@@ -146,7 +146,7 @@ require 'faker'
 #       guest: rand(1...6),
 #       seller_id: rand(1...10),
 #       title: "Ski in Arrabelle, USA",
-#       check_in: "Thu, 28 Mar 2019",
+#       check_in: "Fri, 29 Mar 2019",
 #       check_out: Faker::Date.forward(40),
 #       description: "When you arrive at the Arrabelle, you will feel as if you truly belong. Opulent, yet inviting, no other hotel can combine the same level of luxury with the type of old-world charm that inspired so much of the Vail Valley we know today. Savor the lavish accommodations while reconnecting with the true spirit of one of America’s most iconic ski resorts."
 #           })
@@ -207,7 +207,7 @@ require 'faker'
 #           })
 # listing12.photo.attach(io: File.open("app/assets/images/img17.jpg"), filename: "img17.jpg", content_type: 'image/jpg')
 #
-
+#
 
 
 # _________________________________________________________________________________
@@ -223,7 +223,7 @@ require 'faker'
 #     guest: rand(1...6),
 #     seller_id: rand(1...10),
 #     title: Faker::Address.city,
-#     check_in: "Thu, 28 Mar 2019",
+#     check_in: "Fri, 29 Mar 2019",
 #     check_out: Faker::Date.forward(30),
 #     description: Faker::Lorem.paragraph(30)
 #         })
