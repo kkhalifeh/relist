@@ -19,42 +19,168 @@
    height: 100%;
  }
 
+ /******************** SIGNUP PAGE *************************/
+
+ .signup-background {
+   background-image: url("https://images.unsplash.com/photo-1551192866-d755f85224d5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2851&q=80");
+   background-size: 100%;
+ }
+
+ .signup-box, textarea input {
+   display: flex;
+   align-items: center;
+   flex-direction: column;
+   justify-content: center;
+   margin-left: 40%;
+   background-color: white;
+   width: 20%;
+   margin-top: 120px;
+   opacity: 0.9;
+   padding: 20px;
+ }
+
+/******************** LOGIN PAGE *************************/
+
 .login-background {
-  background-color: lightblue;
-  background-image: url("app/assets/images/img18.jpg");
+  background-image: url("https://images.unsplash.com/photo-1551192866-d755f85224d5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2851&q=80");
+  background-size: 100%;
 }
 
 .login-box, textarea input {
-  margin: 0 auto;
-  width: 150px;
-  display: block;
-
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 40%;
+  background-color: white;
+  width: 20%;
+  margin-top: 120px;
+  opacity: 0.9;
+  padding: 20px;
 }
 
-
-
-
-/******************** NEW LISTING FORM *************************/
-
-label.required:after {
-  content:" *";
-}
+/******************** NEW LISTING PAGE *************************/
 
 .new-listing-form {
   display: flex;
   align-items: center;
   flex-direction: column;
   justify-content: center;
-  margin-left: 50%;
+  margin-left: 55%;
   background-color: white;
+  width: 35%;
+  margin-top: 120px;
+  opacity: 0.9;
+  padding: 20px;
+}
+
+.new-listing-background {
+  background-image: url("http://cdn.sandals.com/sandals/v12/images/resorts/slu/home/main-slider/beach-ocean-beach-chairs.jpg");
+}
+
+/******************** HOMEPAGE *************************/
+
+.search-listing-form {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
   width: 40%;
   margin-top: 100px;
   opacity: 0.9;
   padding: 15px;
 }
 
-.new-listing-background {
-  background-image: url("http://cdn.sandals.com/sandals/v12/images/resorts/slu/home/main-slider/beach-ocean-beach-chairs.jpg");
+h1.class-one{
+  color: white;
+}
+
+.home-background {
+  background-image: url("https://cdn.cnn.com/cnnnext/dam/assets/161215123358-3-lodge-verbier-full-169.jpg");
+  background-size: 100%;
+}
+
+/******************** LISTING VIEW PAGE *************************/
+div.w3-container{
+  padding-top: 30px;
+}
+
+div.w3-container2{
+  padding-top: 30px;
+  background-color: #F7F8F9;
+
+}
+
+div.w3-left2{
+  text-align: justify;
+  padding-right: 100px;
+  padding-left: 10px;
+  text-align: center;
+  padding-top: 20px;
+
+}
+
+div.w3-right2{
+  text-align: justify;
+  padding-right: 100px;
+  padding-left: 10px;
+  text-align: left;
+  padding-top: 20px;
+
+}
+
+div.w3-left{
+  text-align: justify;
+  padding-right: 100px;
+  padding-left: 10px;
+  text-align: center;
+  padding-top: 85px;
+}
+
+div.w3-right img{
+  width: auto;
+  height: auto;
+}
+td.index-image img{
+  width: 700px;
+}
+p.value{
+  text-decoration: line-through;
+  color: red;
+  font-size: 20px;
+}
+
+p.price{
+  font-size: 25px;
+  font-style: bold;
+}
+
+td.value{
+  text-decoration: line-through;
+  color: red;
+}
+
+p.book-button{
+  position:relative;
+  margin-top:110px;
+}
+
+/******************** UPDATE PROFILE PAGE *************************/
+
+.update-profile-background {
+  background-color: #FEF5E7;
+}
+
+.update-profile-box {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 40%;
+  background-color: white;
+  width: 20%;
+  margin-top: 120px;
+  padding: 20px;
 }
 
 /************************** User Profile ***************************/

@@ -20,12 +20,12 @@ require 'faker'
 #     value: Faker::Number.number(4),
 #     price: Faker::Number.number(3),
 #     guest: rand(1...6),
-#     seller_id: rand(1...30),
+#     seller_id: rand(1...32),
 #     title: Faker::Address.city,
 #     check_in: Faker::Date.forward(20),
 #     check_out: Faker::Date.forward(30),
-#     description: Faker::Marketing.buzzwords
+#     description: Faker::Lorem.paragraph(30)
 #         })
-#   img = rand(1...18)
+#   img = rand(2...18)
 #   listing.photo.attach(io: File.open("app/assets/images/img#{img}.jpg"), filename: "img#{img}.jpg", content_type: 'image/jpg')
 # end

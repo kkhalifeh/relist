@@ -1,20 +1,13 @@
-<h1>Update profile</h1>
+<body class="update-profile-background">
+<div class="update-profile-box">
+  <h1>Update profile</h1>
+  <br>
+  <%= bootstrap_form_for @user do |f| %>
+    <%= f.text_field :name %>
+    <%= f.email_field :email %>
+    <%= f.password_field :password %>
 
-<h4><%= flash[:notice] %></h4>
-
-<% if @user.errors %>
-    <% @user.errors.full_messages.each do |message| %>
-    <%= message %>
-    <% end %>
-<% end %>
-
-<%= form_for @user do |f| %>
-<%= f.label :name %>
-<%= f.text_field :name %> <br>
-<%= f.label :email %>
-<%= f.text_field :email %> <br>
-<%= f.label :password %>
-<%= f.password_field :password %>
-
-<%= f.submit 'Update profile' %>
-<% end %>
+    <%= f.submit "Save" %>
+  <% end %>
+</div>
+</body>

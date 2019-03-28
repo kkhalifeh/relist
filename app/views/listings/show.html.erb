@@ -1,37 +1,44 @@
-<p><h4><%= flash[:notice] %></h4></p>
-
-
-<div id="listing_header">
-  <h2><%= @listing.title %> - <%= "$#{@listing.price}" %></h2>
+<body class="listing-view-page">
+<div class="w3-container">
+  <div class="w3-row">
+    <div class="w3-col s6 w3-left">
+        <p class="price"><%= "#{@listing.title} - $#{@listing.price}" %></p>
+        <h4>Value (Original Price)</h4>
+        <p class="value"><%= "$#{@listing.value}" %></p>
+        <h4>Number of Guests</h4>
+        <p><%= @listing.guest %></p>
+        <h4>Check In Date</h4>
+        <p><%= @listing.check_in %></p>
+        <h4>Check Out Date</h4>
+        <p><%= @listing.check_out %></p>
+        <br>
+        <% if @listing.seller_id == current_user.id && !@listing.sale && @listing.check_out > Time.now.strftime('%a, %d %b %Y').to_date %>
+          <h4><%= button_to 'Edit', edit_listing_path(@listing), {method: :get} %> <%= button_to 'Delete', @listing, method: :delete, data: { confirm: 'Confirm delete?' } %>
+        <% end %> </h4>
+        <p class="book-button">
+        <% if !@listing.sale %>
+          <%= button_to "Book", listing_sales_path(@listing), {:class => "btn btn-primary btn-block" } %>
+        <% end %>
+        </p>
+      </div>
+    <div class="w3-col s6 w3-right">
+      <% if @listing.photo.attached? %>
+      <%= image_tag @listing.photo %>
+      <% else %>
+      <img><%= image_tag src="https://semantic-ui.com/images/wireframe/image.png" %></img>
+      <% end %>
+    </div>
+  </div>
 </div>
-
-<% if @listing.seller_id == current_user.id && !@listing.sale && @listing.check_out > Time.now.strftime('%a, %d %b %Y').to_date %>
-  <h4><%= button_to 'Edit', edit_listing_path(@listing), {method: :get} %> <%= button_to 'Delete', @listing, method: :delete, data: { confirm: 'Confirm delete?' } %>
-<% end %>
-<% if !@listing.sale %>
-  <%= button_to "Book", listing_sales_path(@listing) %> </h4>
-<% end %>
-
-<div id="listing_content">
-  <ol>
-    <h3>Seller</h3>
-    <ul><%= "#{@listing.seller.name} (#{@listing.seller.email})" %></ul>
-    <h3>Value(Original Price)</h3>
-    <ul><%= "$#{@listing.value}" %></ul>
-    <h3>Price</h3>
-    <ul><%= "$#{@listing.price}"  %></ul>
-    <h3>Number of Guests</h3>
-    <ul><%= @listing.guest %></ul>
-    <h3>Check In Date</h3>
-    <ul><%= @listing.check_in %></ul>
-    <h3>Check Out Date</h3>
-    <ul><%= @listing.check_out %></ul>
-    <h3>Description</h3>
-    <ul><%= @listing.description %></ul>
-    <% if @listing.photo.attached? %>
-    
-      <h3>Photo</h3>
-        <%= image_tag @listing.photo, size: "500x300" %>
-    <% end %>
-    </ol>
+<div class="w3-container2">
+  <div class="w3-row">
+    <div class="w3-col s6 w3-left2">
+        <h4>Seller</h4>
+        <p><%= "#{@listing.seller.name} (#{@listing.seller.email})" %></p>
+      </div>
+    <div class="w3-col s6 w3-right2">
+        <h4>Description</h4>
+        <p><%= @listing.description %></p>
+    </div>
+  </div>
 </div>
