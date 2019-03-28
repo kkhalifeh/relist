@@ -1,44 +1,56 @@
 <p><h4><%= flash[:notice] %></h4></p>
-
- <h1 align="center"> <%= "#{current_user.name}'s Analytics" %> </h1>
- <div class="container">
- <table class="table table-hover table-dark">
-   <style>
-   table {
-   text-align: center;
-   vertical-align: center;
-   font-size: 20px;
-   }
-   th {
-     width:300px;
-     height:200px;
-   }
-   </style>
-   <br>
-   <tr>
-     <th>Total Sales
-       <br>
-       $<%= current_user.total_sales %> </th>
-     <th>Total Spent
-       <br>
-       $<%= current_user.total_spent %></th>
-     <th>Largest Discount
-       <br>
-       $<%= current_user.largest_discount %>
-     </th>
-   </tr>
-   <tr>
-     <th>Average Discount
-       <br>
-       $<%= current_user.average_discount %> </th>
-     <th>Total Saved
-       <br>
-       $<%= current_user.total_saved %></th>
-     <th>Average Guests
-       <br>
-       <%= current_user.average_guests %> guests
-     </th>
-   </tr>
- </div>
- </table>
- <p><h4><%= flash[:notice] %></h4></p>
+<body class="analytics-background">
+<div class="analytics-contanier">
+    <div class="w3-row">
+      <div class="w3-col s12 w3-light-grey w3-center-analytics-header"><p><%= "#{current_user.name}'s Analytics" %></p></div>
+    </div>
+    <div class="w3-row">
+      <% if current_user.total_sales > 0 %>
+      <div class="w3-col s3 w3-white w3-center"><p>Total Sales</p></div>
+      <div class="w3-col s7 w3-green w3-center"><p>$<%= current_user.total_sales %></p></div>
+      <% else %>
+      <div class="w3-col s3 w3-white w3-center"><p>Total Sales</p></div>
+      <% end %>
+    </div>
+    <div class="w3-row">
+      <% if current_user.total_spent > 0 %>
+      <div class="w3-col s3 w3-white w3-center"><p>Total Spent</p></div>
+      <div class="w3-col s9 w3-blue w3-center"><p>$<%= current_user.total_spent %></p></div>
+      <% else %>
+      <div class="w3-col s3 w3-white w3-center"><p>Total Spent</p></div>
+      <% end %>
+    </div>
+    <div class="w3-row">
+      <% if current_user.largest_discount > 0 %>
+      <div class="w3-col s3 w3-white w3-center"><p>Largest Discount</p></div>
+      <div class="w3-col s8 w3-deep-orange w3-center"><p>$<%= current_user.largest_discount %></p></div>
+      <% else %>
+      <div class="w3-col s3 w3-white w3-center"><p>Largest Discount</p></div>
+      <% end %>
+    </div>
+    <div class="w3-row">
+      <% if current_user.average_discount.round(2) > 0 %>
+      <div class="w3-col s3 w3-white w3-center"><p>Average Discount</p></div>
+      <div class="w3-col s7 w3-green w3-center"><p>$<%= current_user.average_discount.round(2) %></p></div>
+      <% else %>
+      <div class="w3-col s3 w3-white w3-center"><p>Average Discount</p></div>
+      <% end %>
+    </div>
+    <div class="w3-row">
+      <% if current_user.total_saved > 0 %>
+      <div class="w3-col s3 w3-white w3-center"><p>Total Saved</p></div>
+      <div class="w3-col s9 w3-blue w3-center"><p>$<%= current_user.total_saved %></p></div>
+      <% else %>
+      <div class="w3-col s3 w3-white w3-center"><p>Total Saved</p></div>
+      <% end %>
+    </div>
+    <div class="w3-row">
+      <% if current_user.average_guests.round(2) > 0 %>
+      <div class="w3-col s3 w3-white w3-center"><p>Average Guests</p></div>
+      <div class="w3-col s6 w3-deep-orange w3-center"><p><%= current_user.average_guests.round(2) %></p></div>
+      <% else %>
+      <div class="w3-col s3 w3-white w3-center"><p>Average Guests</p></div>
+      <% end %>
+    </div>
+  </div>
+</body>

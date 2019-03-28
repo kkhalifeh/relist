@@ -204,3 +204,24 @@ td {
   text-align: left;
   padding: 20px;
 }
+
+/************************** Analytics Page ***************************/
+.analytics-background {
+  background-image: url("https://hdqwalls.com/download/blue-abstract-simple-background-qs-2048x1152.jpg");
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+
+.analytics-contanier {
+  margin-left: 20%;
+  background-color: white;
+  width: 60%;
+  margin-top: 120px;
+  opacity: 0.9;
+  padding: 20px;
+}
+
+div.w3-center-analytics-header p{
+  font-size: 30px;
+  text-align: center;
+}
