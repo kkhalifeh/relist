@@ -48,7 +48,11 @@
               <%# <% if listing.photos.attached? %>
                   <%# <!-- <td><%= image_tag listing.photos.first, size: "100x70" %>
               <%# <% end %>
-              <td><%= button_to 'Edit', edit_listing_path(listing), {method: :get, :class => "btn btn-success" } %> <%= button_to 'Delete', @listing, method: :delete, data: { confirm: 'Confirm delete?' }, class: "btn btn-danger" %> </td>
+              <td>
+                <% if current_user == @user %>
+                  <%= button_to 'Edit', edit_listing_path(listing), {method: :get, :class => "btn btn-success" } %> 
+                  <%= button_to 'Delete', @listing, method: :delete, data: { confirm: 'Confirm delete?' }, class: "btn btn-danger" %> </td>
+                <% end %>
             </tr>
           <% end %>
         </tbody>
