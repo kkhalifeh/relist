@@ -14,7 +14,7 @@ require 'faker'
 
 # Listing.destroy_all
 
-#
+
 # listing1 = Listing.create({
 #     value: Faker::Number.number(4),
 #     price: Faker::Number.number(3),
@@ -161,8 +161,8 @@ require 'faker'
 #       guest: rand(1...6),
 #       seller_id: rand(1...10),
 #       title: "Apartment in Glendale, Denver",
-#       check_in: "Thu, 28 Mar 2019",
-#       check_out: Faker::Date.forward(40),
+#       check_in: "Mon, 4 Mar 2019",
+#       check_out: "Wed, 6 Mar 2019",
 #       description: "If you are looking for a unique apartment home with a relaxed vibe and homey feel in the heart of Glendale- one of Denver’s newest up and coming locations, The Collective Glendale has the perfect apartment home to suit your lifestyle. Our collection of newly renovated, eclectic communities combines updated interiors and exteriors with fabulous amenities like fire pits, enclosed grilling areas, hot tubs, sparkling pools, outdoor lounges and dog parks for a one of a kind Denver living experience. "
 #           })
 # listing9.photo.attach(io: File.open("app/assets/images/img10.jpg"), filename: "img10.jpg", content_type: 'image/jpg')
@@ -173,8 +173,8 @@ require 'faker'
 #       guest: rand(1...6),
 #       seller_id: rand(1...10),
 #       title: "Tallebudgera Valley on the Gold Coast",
-#       check_in: "Thu, 28 Mar 2019",
-#       check_out: Faker::Date.forward(40),
+#       check_in: "Mon, 4 Mar 2019",
+#       check_out: "Wed, 6 Mar 2019",
 #       description: "Set in Tallebudgera Valley on the Gold Coast, this serene spa resort is 10 km from the centre of Tallebudgera, 12 km from Burleigh Heads beach and 20 km from Gold Coast Airport. 
 #       The individually decorated rooms, cottages and villas feature diverse styles, including vintage Australian and modern Asian, as well as free Wi-Fi. Amenities vary, but include wood-burning stoves, verandahs and private plunge pools.
 #       Amenities include 2 infinity pools, plus a poolside dining room serving spa cuisine made from organic, local ingredients. There's also a sauna, a gym and a spa, as well as tennis courts."
@@ -187,8 +187,8 @@ require 'faker'
 #       guest: rand(1...6),
 #       seller_id: rand(1...10),
 #       title: "Injidup Spa Retreat in the heart of the Margaret River",
-#       check_in: "Thu, 28 Mar 2019",
-#       check_out: Faker::Date.forward(40),
+#       check_in: "Mon, 4 Mar 2019",
+#       check_out: "Wed, 6 Mar 2019",
 #       description: "Situated on a secluded beach in the heart of the Margaret River wine region, Injidup Spa Retreat features 10 luxurious adult only villas, each with a private plunge pool and stunning ocean views. The Injidup Spa offers massages and body treatments in a unique setting.
 #       All guests receive a gourmet breakfast hamper and a bottle of wine on arrival. Private in-villa dining is available upon prior arrangement. The property also offers free Wi-Fi.
 #       All villas feature a kitchenette and a private patio with BBQ. Each has a living room with a fireplace, a flat-screen TV, a DVD player and a bluetooth speaker.
@@ -202,15 +202,13 @@ require 'faker'
 #       guest: rand(1...6),
 #       seller_id: rand(1...10),
 #       title: "Agios Ioannis, Mykonos",
-#       check_in: "Thu, 28 Mar 2019",
-#       check_out: Faker::Date.forward(40),
+#       check_in: "Mon, 4 Mar 2019",
+#       check_out: "Wed, 6 Mar 2019",
 #       description: "Perfectly located in Agios Ioannis, just 400m from the beach, this luxury villa rental on Mykonos is ideal for summer holidays, for families and friends. There are wonderful sunset views to Delos Island from the terrace.
 #       The villa is on two levels, a ground floor and first floor, offering two different entrances. The first floor has a large infinity swimming pool, surrounded by a terrace with sunbeds, well furnished outdoor living areas, including an al fresco dining area with built-in barbecue. Within the private grounds is a picturesque small chapel.
 #       The villa accommodates 12 guests in six spacious bedrooms, with bathrooms ensuite, and there is also an extra maid’s room for up to two people. Amenities include full air conditioning, satellite TV and Wi-Fi access."
 #           })
 # listing12.photo.attach(io: File.open("app/assets/images/img17.jpg"), filename: "img17.jpg", content_type: 'image/jpg')
-#
-#
 
 
 
