@@ -4,7 +4,7 @@ class ListingsController < ApplicationController
 
   def authorize_edit_listing
     if set_listing.seller_id != current_user.id
-      # flash[:notice] = "You are not authorized to edit another user's listing"
+      # flash[:notice] = "You are not authorized to edit another user's listing"g
       redirect_to @listing
     elsif set_listing.check_in < Time.now.strftime('%a, %d %b %Y').to_date
       # flash[:notice] = "You are not authorized to edit a past listing"

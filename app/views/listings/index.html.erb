@@ -43,7 +43,7 @@
           <% if listing.photo.attached? %>
           <td class="index-image"><%= image_tag listing.photo%> <%= button_to "Book", listing_sales_path(listing), {:class => "btn-primary btn-block" } %> </td>
           <% else %>
-          <td class="index-image"><%= image_tag src="https://semantic-ui.com/images/wireframe/image.png" %> <%= button_to "Book", listing_sales_path(listing), {:class => "btn-primary btn-block" } %> </td>
+          <td class="index-image"><%= image_tag src="http://kalaharilifestyle.com/wp-content/uploads/2014/04/placeholder4.png" %> <%= button_to "Book", listing_sales_path(listing), {:class => "btn-primary btn-block" } %> </td>
           <% end %>
           <% end %>
         </tr>
