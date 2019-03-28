@@ -1,17 +1,17 @@
 require 'faker'
 
-User.destroy_all
+# User.destroy_all
+#
+# (1..10).each do |num|
+#   user = User.create({
+#     name: Faker::Name.name,
+#     email: Faker::Internet.email,
+#     password: "password",
+#     })
+#   user.profile_photo.attach(io: File.open("app/assets/images/profile_photos/pp#{num}.png"), filename: "pp#{num}.jpg", content_type: 'image/png')
+# end
 
-(1..10).each do |num|
-  user = User.create({
-    name: Faker::Name.name,
-    email: Faker::Internet.email,
-    password: "password",
-    })
-  user.profile_photo.attach(io: File.open("app/assets/images/profile_photos/pp#{num}.png"), filename: "pp#{num}.jpg", content_type: 'image/png')
-end
-
-
+#
 # listing1 = Listing.create({
 #     value: Faker::Number.number(4),
 #     price: Faker::Number.number(3),
@@ -206,7 +206,7 @@ end
 #       The villa accommodates 12 guests in six spacious bedrooms, with bathrooms ensuite, and there is also an extra maid’s room for up to two people. Amenities include full air conditioning, satellite TV and Wi-Fi access."
 #           })
 # listing12.photo.attach(io: File.open("app/assets/images/img17.jpg"), filename: "img17.jpg", content_type: 'image/jpg')
-
+#
 
 
 

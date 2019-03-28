@@ -227,8 +227,10 @@ p.book-button{
 /************************** User Profile ***************************/
 
 .user-profile-header {
-  margin-left: 60px;
-  margin-bottom: 25px;
+  margin-top: 40px;
+  margin-bottom: 20px;
+  text-align: center;
+  font-size: 60px;
 }
 
 .w3-left-4 img{
@@ -238,15 +240,29 @@ p.book-button{
   width: 250px;
   height: 250px;
   border-radius: 50%;
-
+  margin-left: 15px;
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
+  margin-left: 40px;
+  margin-bottom: 20px;
+}
+
+.w3-left-4 {
+  text-align: center;
+  margin-left: 60px;
+  margin-top: 20px;
 }
 
 td {
   text-align: left;
   padding: 20px;
+}
+
+.user-table-header {
+  border-bottom: 1px solid #D3CDCC;
+  margin-right: 80px;
+  margin-top: 40px;
 }
 
 /************************** Analytics Page ***************************/
