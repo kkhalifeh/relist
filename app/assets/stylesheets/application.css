@@ -127,12 +127,12 @@ h1#class-one{
 /******************** LISTING VIEW PAGE *************************/
 div.w3-container{
   padding-top: 30px;
+  font-size: 30px;
 }
 
 div.w3-container2{
   padding-top: 30px;
   background-color: #F7F8F9;
-
 }
 
 div.w3-left2{
@@ -141,7 +141,6 @@ div.w3-left2{
   padding-left: 10px;
   text-align: center;
   padding-top: 20px;
-
 }
 
 div.w3-right2{
@@ -150,7 +149,6 @@ div.w3-right2{
   padding-left: 10px;
   text-align: left;
   padding-top: 20px;
-
 }
 
 div.w3-left{
@@ -171,11 +169,11 @@ td.index-image img{
 p.value{
   text-decoration: line-through;
   color: red;
-  font-size: 20px;
+  font-size: 30px;
 }
 
 p.price{
-  font-size: 25px;
+  font-size: 30px;
   font-style: bold;
 }
 
@@ -187,6 +185,10 @@ td.value{
 p.book-button{
   position:relative;
   margin-top:110px;
+}
+
+.btn-success {
+  margin-bottom: 15px;
 }
 
 /******************** UPDATE PROFILE PAGE *************************/

@@ -3,17 +3,19 @@
   <div class="w3-row">
     <div class="w3-col s6 w3-left">
         <p class="price"><%= "#{@listing.title} - $#{@listing.price}" %></p>
-        <h4>Value (Original Price)</h4>
+        <h2>Value (Original Price)</h2>
         <p class="value"><%= "$#{@listing.value}" %></p>
-        <h4>Number of Guests</h4>
+        <h2>Number of Guests</h2>
         <p><%= @listing.guest %></p>
-        <h4>Check In Date</h4>
+        <h2>Check In Date</h2>
         <p><%= @listing.check_in %></p>
-        <h4>Check Out Date</h4>
+        <h2>Check Out Date</h2>
         <p><%= @listing.check_out %></p>
         <br>
         <% if @listing.seller_id == current_user.id && !@listing.sale && @listing.check_out > Time.now.strftime('%a, %d %b %Y').to_date %>
-          <h4><%= button_to 'Edit', edit_listing_path(@listing), {method: :get} %> <%= button_to 'Delete', @listing, method: :delete, data: { confirm: 'Confirm delete?' } %>
+          <h4>
+            <%= button_to 'Edit', edit_listing_path(@listing), {method: :get, :class => "btn btn-success" } %> 
+            <%= button_to 'Delete', @listing, method: :delete, data: { confirm: 'Confirm delete?' }, class: "btn btn-danger" %>
         <% end %> </h4>
         <p class="book-button">
         <% if !@listing.sale %>
@@ -33,11 +35,11 @@
 <div class="w3-container2">
   <div class="w3-row">
     <div class="w3-col s6 w3-left2">
-        <h4>Seller</h4>
+        <h2>Seller</h2>
         <p><%= "#{@listing.seller.name} (#{@listing.seller.email})" %></p>
       </div>
     <div class="w3-col s6 w3-right2">
-        <h4>Description</h4>
+        <h2>Description</h2>
         <p><%= @listing.description %></p>
     </div>
   </div>
