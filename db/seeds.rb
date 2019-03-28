@@ -29,3 +29,8 @@ require 'faker'
 #   img = rand(2...18)
 #   listing.photo.attach(io: File.open("app/assets/images/img#{img}.jpg"), filename: "img#{img}.jpg", content_type: 'image/jpg')
 # end
+
+User.all.each do |user|
+    img = rand(2...18)
+    user.profile_photo.attach(io: File.open("app/assets/images/img#{img}.jpg"), filename: "img#{img}.jpg", content_type: 'image/jpg')
+end
