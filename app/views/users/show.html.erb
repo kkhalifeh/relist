@@ -7,10 +7,12 @@
   <div class="w3-col s3 w3-left-4">
     <% if @user.profile_photo.attached? %>
       <%= image_tag @user.profile_photo %>
-    <% else %>
-    <% end %>
+      <% else %>
+      <%= image_tag src="https://www.manufacturingusa.com/sites/manufacturingusa.com/files/default.png" %>
+      <% end %>
   </div>
-
+</div>
+<div class="w3-row">
   <div class="w3-col s2">
     <h3>Name: <%= @user.name %></h3>
     <h3>Email: <%= @user.email %></h3>
@@ -35,7 +37,7 @@
             <th colspan="3"></th>
           </tr>
         </thead>
-        
+
         <tbody>
           <% @user.active_listings.each do |listing| %>
             <tr>
@@ -50,7 +52,7 @@
               <%# <% end %>
               <td>
                 <% if current_user == @user %>
-                  <%= button_to 'Edit', edit_listing_path(listing), {method: :get, :class => "btn btn-success" } %> 
+                  <%= button_to 'Edit', edit_listing_path(listing), {method: :get, :class => "btn btn-success" } %>
                   <%= button_to 'Delete', @listing, method: :delete, data: { confirm: 'Confirm delete?' }, class: "btn btn-danger" %> </td>
                 <% end %>
             </tr>

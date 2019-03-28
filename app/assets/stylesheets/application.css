@@ -147,6 +147,17 @@ div.w3-left2{
   padding-top: 20px;
 }
 
+div.w3-left2 img{
+  display: inline-block;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+}
+
 div.w3-right2{
   text-align: justify;
   padding-right: 100px;
@@ -223,6 +234,14 @@ p.book-button{
 .w3-left-4 img{
   text-align: center;
   width: 300px;
+  display: inline-block;
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
 }
 
 td {
