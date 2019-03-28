@@ -1,7 +1,7 @@
 <body class="listing-view-page">
 <div class="w3-container">
   <div class="w3-row">
-    <div class="w3-col s4 w3-left">
+    <div class="w3-col s6 w3-left">
         <p class="price"><%= "#{@listing.title} - $#{@listing.price}" %></p>
         <h4>Value (Original Price)</h4>
         <p class="value"><%= "$#{@listing.value}" %></p>
@@ -21,15 +21,24 @@
         <% end %>
         </p>
       </div>
-    <div class="w3-col s8 w3-center">
+    <div class="w3-col s6 w3-right">
       <% if @listing.photo.attached? %>
-      <p><%= image_tag @listing.photo %></p></div>
+      <%= image_tag @listing.photo %>
       <% else %>
-      <p><%= image_tag src="https://semantic-ui.com/images/wireframe/image.png" %></p>
+      <img><%= image_tag src="https://semantic-ui.com/images/wireframe/image.png" %></img>
       <% end %>
+    </div>
   </div>
 </div>
-<h4>Seller</h4>
-<p><%= "#{@listing.seller.name} (#{@listing.seller.email})" %></p>
-<h4>Description</h4>
-<p><%= @listing.description %></p>
+<div class="w3-container2">
+  <div class="w3-row">
+    <div class="w3-col s6 w3-left2">
+        <h4>Seller</h4>
+        <p><%= "#{@listing.seller.name} (#{@listing.seller.email})" %></p>
+      </div>
+    <div class="w3-col s6 w3-right2">
+        <h4>Description</h4>
+        <p><%= @listing.description %></p>
+    </div>
+  </div>
+</div>
