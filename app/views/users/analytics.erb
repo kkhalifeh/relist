@@ -5,7 +5,7 @@
       <div class="w3-col s12 w3-light-grey w3-center-analytics-header"><p><%= "#{current_user.name}'s Analytics" %></p></div>
     </div>
     <div class="w3-row">
-      <% if current_user.total_sales > 0 %>
+      <% if current_user.total_sales %>
       <div class="w3-col s3 w3-white w3-center"><p>Total Sales</p></div>
       <div class="w3-col s7 w3-green w3-center"><p>$<%= current_user.total_sales %></p></div>
       <% else %>
@@ -13,7 +13,7 @@
       <% end %>
     </div>
     <div class="w3-row">
-      <% if current_user.total_spent > 0 %>
+      <% if current_user.total_spent %>
       <div class="w3-col s3 w3-white w3-center"><p>Total Spent</p></div>
       <div class="w3-col s9 w3-blue w3-center"><p>$<%= current_user.total_spent %></p></div>
       <% else %>
@@ -21,7 +21,7 @@
       <% end %>
     </div>
     <div class="w3-row">
-      <% if current_user.largest_discount > 0 %>
+      <% if current_user.largest_discount %>
       <div class="w3-col s3 w3-white w3-center"><p>Largest Discount</p></div>
       <div class="w3-col s8 w3-deep-orange w3-center"><p>$<%= current_user.largest_discount %></p></div>
       <% else %>
@@ -29,7 +29,7 @@
       <% end %>
     </div>
     <div class="w3-row">
-      <% if current_user.average_discount.round(2) > 0 %>
+      <% if current_user.average_discount %>
       <div class="w3-col s3 w3-white w3-center"><p>Average Discount</p></div>
       <div class="w3-col s7 w3-green w3-center"><p>$<%= current_user.average_discount.round(2) %></p></div>
       <% else %>
@@ -37,7 +37,7 @@
       <% end %>
     </div>
     <div class="w3-row">
-      <% if current_user.total_saved > 0 %>
+      <% if current_user.total_saved %>
       <div class="w3-col s3 w3-white w3-center"><p>Total Saved</p></div>
       <div class="w3-col s9 w3-blue w3-center"><p>$<%= current_user.total_saved %></p></div>
       <% else %>
@@ -45,7 +45,7 @@
       <% end %>
     </div>
     <div class="w3-row">
-      <% if current_user.average_guests.round(2) > 0 %>
+      <% if current_user.average_guests %>
       <div class="w3-col s3 w3-white w3-center"><p>Average Guests</p></div>
       <div class="w3-col s6 w3-deep-orange w3-center"><p><%= current_user.average_guests.round(2) %></p></div>
       <% else %>
