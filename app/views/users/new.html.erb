@@ -1,7 +1,8 @@
 <body class="signup-background">
 <div class="signup-box">
   <h1>Create account</h1>
-
+  <font color="red"<p><%= flash[:notice] %></p></font>
+  <% flash[:notice] = "" %>
   <%= bootstrap_form_for @user do |f| %>
     <%= f.text_field :name %>
     <%= f.email_field :email %>

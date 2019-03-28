@@ -1,6 +1,8 @@
 <body class="update-profile-background">
 <div class="update-profile-box">
   <h1>Update profile</h1>
+  <font color="red"<p><%= flash[:notice] %></p></font>
+  <% flash[:notice] = "" %>
   <br>
   <%= bootstrap_form_for @user do |f| %>
     <%= f.text_field :name %>
