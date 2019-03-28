@@ -8,8 +8,8 @@
   </div>
 
   <div class="w3-col s2">
-    <p>Name: <%= @user.name %></p>
-    <p>Email: <%= @user.email %></p>
+    <h4>Name: <%= @user.name %></h4>
+    <h4>Email: <%= @user.email %></h4>
 
     <% if current_user == User.find(params[:id]) %>
       <%= button_to 'Update profile', edit_user_path, method: :get %>
@@ -17,7 +17,7 @@
   </div>
 
   <div class="w3-col s7 w3-right">
-    <h3>Listings</h3>
+    <h4>Listings</h4>
     <% if @user.active_listings.length != 0 %>
       <table>
         <thead>
@@ -56,7 +56,7 @@
 
     <% if current_user == User.find(params[:id]) %>
 
-    <h3 class="user-table-header">Trips</h3>
+    <h4 class="user-table-header">Trips</h4>
 
     <% if @user.active_trips.length != 0 %>
 
@@ -91,7 +91,7 @@
       <%= button_to "Buy a Listing!", listings_path, method: :get%>
     <% end %>
 
-    <h3 class="user-table-header">Past Listings</h3>
+    <h4 class="user-table-header">Past Listings</h4>
 
     <% if @user.past_listings.length != 0 %>
 
@@ -128,7 +128,7 @@
       <p>No Past Listings</p>
     <% end %>
 
-    <h3 class="user-table-header"> Past Trips</h3>
+    <h4 class="user-table-header"> Past Trips</h4>
 
     <% if @user.past_trips.length != 0 %>
 
