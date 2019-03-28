@@ -80,6 +80,23 @@
   background-image: url("http://cdn.sandals.com/sandals/v12/images/resorts/slu/home/main-slider/beach-ocean-beach-chairs.jpg");
 }
 
+/******************** EDIT LISTING PAGE *************************/
+.edit-listing-background {
+  background-color: #FEF5E7;
+}
+
+.edit-listing-form {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 33%;
+  background-color: white;
+  width: 35%;
+  margin-top: 120px;
+  opacity: 0.9;
+  padding: 20px;
+}
 /******************** HOMEPAGE *************************/
 
 .search-listing-form {
