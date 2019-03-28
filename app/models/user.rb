@@ -62,22 +62,30 @@ class User < ApplicationRecord
   # Total money earned on listings
   def total_sales
     all_sales = Sale.where(seller_id: self.id)
-    all_sales.inject(0) do |sum, sale|
-      sum + sale.listing.price
+    if all_sales.length == 0
+      return nil
+    else
+        all_sales.inject(0) do |sum, sale|
+        sum + sale.listing.price
+      end
     end
   end
 
   #Total money spent on trips
   def total_spent
-    all_trips.inject(0) do |sum, listing|
-      sum += listing.price
+    if all_trips.length == 0
+      return nil
+    else
+        all_trips.inject(0) do |sum, listing|
+        sum += listing.price
+      end
     end
   end
 
   #Largest amount saved on a trip (as a buyer)
   def largest_discount
     if discounts.length == 0
-      return "Buy a trip!"
+      return nil
     else
       discounts.max
     end
@@ -86,7 +94,7 @@ class User < ApplicationRecord
   #Average discount for all trips (as a buyer)
   def average_discount
     if discounts.length == 0
-      return "Buy a trip!"
+      return nil
     else
       sum_discounts = discounts.inject do |sum, discount|
         sum += discount
@@ -98,7 +106,7 @@ class User < ApplicationRecord
   #Total amount saved on all bought trips
   def total_saved
     if discounts.length == 0
-      return "Buy a trip!"
+      return nil
     else
       discounts.inject do |sum, discount|
         sum += discount
@@ -109,7 +117,7 @@ class User < ApplicationRecord
   #Average number of guests for bought trips
   def average_guests
     if all_trips.length == 0
-      return "Buy a trip!"
+      return nil
     else
       sum_guests = all_trips.inject(0) do |sum, listing|
         sum += listing.guest
