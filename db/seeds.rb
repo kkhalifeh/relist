@@ -45,7 +45,7 @@ listing1 = Listing.create({
     check_out: Faker::Date.forward(30),
     description: "The Outrigger Fiji Beach Resort is a deluxe 5 star resort with a beachfront location on Fiji's famous Coral Coast. Offering fantastic facilities including one of the largest freshwater swimming pools in the South Pacific & the stunning Bebe Spa this resort is ideal for both couples and families. Outrigger Fiji Beach Resort has a great Kids Stay and Eat Free offer for stays of 4 nights or more and is the perfect destination for a relaxing and memorable holiday."
         })
-listing1.photo.attach(io: File.open("app/assets/images/holiday1.png"), filename: "holiday1.png", content_type: 'image/png')
+listing1.photo.attach(io: File.open("app/assets/images/holiday1.jpg"), filename: "holiday1.jpg", content_type: 'image/jpg')
 
 listing2 = Listing.create({
       value: Faker::Number.number(4),
@@ -73,4 +73,4 @@ listing2 = Listing.create({
       Flights from Melbourne, Brisbane & Adelaide also available - click on Instant Quote to change your departure city
       Kids Fly Return from $99 *T&C’s apply"
           })
-listing2.photo.attach(io: File.open("app/assets/images/holiday2.png"), filename: "holiday2.png", content_type: 'image/png')
+listing2.photo.attach(io: File.open("app/assets/images/holiday2.jpg"), filename: "holiday2.jpg", content_type: 'image/jpg')
