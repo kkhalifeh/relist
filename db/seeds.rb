@@ -14,6 +14,17 @@ require 'faker'
 #   User.create({name: "#{name}", email: "#{email}", password: "password"}) end
 
 
+# User.destroy_all
+# (1..10).each do |num|
+#   user = User.create({
+#     name: Faker::Name.name,
+#     email: Faker::Internet.email,
+#     password: "password",
+#     })
+#   user.profile_photo.attach(io: File.open("app/assets/images/profile_photos/pp#{num}.png"), filename: "pp#{num}.jpg", content_type: 'image/png')
+# end
+
+
 # Listing.destroy_all
 # 50.times do
 # listing = Listing.create({
@@ -74,6 +85,7 @@ require 'faker'
 #       Kids Fly Return from $99 *T&C’s apply"
 #           })
 # listing2.photo.attach(io: File.open("app/assets/images/holiday2.jpg"), filename: "holiday2.jpg", content_type: 'image/jpg')
+
 #
 # listing3 = Listing.create({
 #       value: Faker::Number.number(4),
@@ -228,3 +240,4 @@ require 'faker'
 #       The villa accommodates 12 guests in six spacious bedrooms, with bathrooms ensuite, and there is also an extra maid’s room for up to two people. Amenities include full air conditioning, satellite TV and Wi-Fi access."
 #           })
 # listing12.photo.attach(io: File.open("app/assets/images/img17.jpg"), filename: "img17.jpg", content_type: 'image/jpg')
+
