@@ -97,6 +97,10 @@
   opacity: 0.9;
   padding: 20px;
 }
+
+.custom-file-control.selected:lang(en)::after {
+  content: "" !important;
+}
 /******************** HOMEPAGE *************************/
 
 .search-listing-form {
