@@ -2,12 +2,12 @@
 
 <h2 class="user-profile-header">User Profile</h2>
 
-<div class="user-display">
-  <div class="profile-image">
+<div class="w3-row">
+  <div class="w3-col s3 w3-left">
     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRJ3wpVMabV3NjszpbcmckzH0JntyZeRG-NlPwLaYESyCOJrYN7"/>
   </div>
 
-  <div class="profile">
+  <div class="w3-col s2">
     <p>Name: <%= @user.name %></p>
     <p>Email: <%= @user.email %></p>
 
@@ -16,11 +16,9 @@
     <% end %>
   </div>
 
-  <div class="data-wrapper">
+  <div class="w3-col s7 w3-right">
     <h3>Listings</h3>
-    
     <% if @user.active_listings.length != 0 %>
-
       <table>
         <thead>
           <tr>
@@ -33,8 +31,7 @@
             <th colspan="3"></th>
           </tr>
         </thead>
-
-
+        
         <tbody>
           <% @user.active_listings.each do |listing| %>
             <tr>
@@ -51,10 +48,10 @@
             </tr>
           <% end %>
         </tbody>
-    </table>
-  <% else %>
-    <%= button_to "Create a Listing", new_listing_path, method: :get%>
-  <% end %>
+      </table>
+    <% else %>
+      <%= button_to "Create a Listing", new_listing_path, method: :get%>
+    <% end %>
 
 
     <% if current_user == User.find(params[:id]) %>
@@ -131,8 +128,6 @@
       <p>No Past Listings</p>
     <% end %>
 
-    <br>
-
     <h3 class="user-table-header"> Past Trips</h3>
 
     <% if @user.past_trips.length != 0 %>
@@ -169,7 +164,6 @@
     <% else %>
       <p>No Past Trips</p>
     <% end %>
-    <br>
 
     <% end %>
   </div>
