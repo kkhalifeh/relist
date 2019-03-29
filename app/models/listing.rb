@@ -1,12 +1,10 @@
 class Listing < ApplicationRecord
   #ASSOCIATIONS
   has_one :sale, dependent: :destroy
-  # belongs_to :category
   belongs_to :seller, :class_name => 'User', :foreign_key => 'seller_id'
 
   def self.search(search)
     where("title LIKE ?", "%#{search}%")
-    # search.values.join("-").to_date
   end
 
   def self.check_in_date(search)

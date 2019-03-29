@@ -4,10 +4,8 @@ class ListingsController < ApplicationController
 
   def authorize_edit_listing
     if set_listing.seller_id != current_user.id
-      # flash[:notice] = "You are not authorized to edit another user's listing"
       redirect_to @listing
     elsif set_listing.check_in < Time.now.strftime('%a, %d %b %Y').to_date
-      # flash[:notice] = "You are not authorized to edit a past listing"
       redirect_to @listing
     end
   end
@@ -20,32 +18,30 @@ class ListingsController < ApplicationController
     @listings = Listing.all.find_all do |listing| listing.sale == nil && listing.check_in > Date.yesterday end
     @listings = @listings.paginate(page: params[:page], per_page: 10)
     if params[:search]
-      # @listings = Listing.search(params[:search]).paginate(page: params[:page], per_page: 10).order("created_at DESC")
       @listings = Listing.check_in_date(params[:search][:start_date]).paginate(page: params[:page]).order("check_in ASC")
     end
   end
 
   # GET /listings/1
   def show
-    # byebug
+
   end
 
   # GET /listings/new
   def new
     @listing = Listing.new
-    # @categories = Category.all
+
   end
 
   # GET /listings/1/edit
   def edit
-    # @categories = Category.all
+
   end
 
   # POST /listings
   def create
     @listing = Listing.create(listing_params)
     @listing.seller = current_user
-    # @listing.photos.attach(params[:listing][:photos])
 
     respond_to do |format|
       if @listing.save
@@ -58,21 +54,32 @@ class ListingsController < ApplicationController
 
   # PATCH/PUT /listings/1
   def update
-    # @listing.photos.attach(params[:listing][:photos])
-    respond_to do |format|
-      if @listing.update(listing_params)
-        format.html { redirect_to @listing, notice: 'Listing was successfully updated.' }
-      else
-        format.html { render :edit }
+    if !@listing.sale
+      respond_to do |format|
+        if @listing.update(listing_params)
+          format.html { redirect_to @listing, notice: 'Listing was successfully updated.' }
+        else
+          format.html { render :edit }
+        end
+      end
+    else
+      respond_to do |format|
+        format.html { redirect_to listings_url, notice: 'Unable to edit listing that has already been sold.' }
       end
     end
   end
 
   # DELETE /listings/1
   def destroy
-    @listing.destroy
-    respond_to do |format|
-      format.html { redirect_to listings_url, notice: 'Listing was successfully deleted.' }
+    if !@listing.sale
+      @listing.destroy
+      respond_to do |format|
+        format.html { redirect_to listings_url, notice: 'Listing was successfully deleted.' }
+      end
+    else
+      respond_to do |format|
+        format.html { redirect_to listings_url, notice: 'Unable to delete listing that has already been sold.' }
+      end
     end
   end
 

@@ -21,7 +21,6 @@ class User < ApplicationRecord
   # current date
   def past_listings
     all_listings.select do |listing|
-      # Refactor Time.now.str... x4 into ApplicationRecord as session[:current_date] or just current_date?
       listing.check_out < current_time
     end
   end
