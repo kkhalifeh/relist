@@ -2,7 +2,7 @@
 
 <h1>Listings</h1>
 
-<label for="Listing Calendar">Select check in date</label>
+<label for="Listing Calendar">Filter by check-in date starting on:</label>
   <%= form_for :search, method: :get do |f| -%>
 
       <%= f.select :start_date, options_for_select( [['Check In Date','indate']]) -%>
