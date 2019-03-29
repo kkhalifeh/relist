@@ -123,6 +123,15 @@ h1#class-one{
   margin-left: 40px;
 }
 
+h4#class-one{
+  color: white;
+  font-family: 'Pacifico', cursive;
+  font-size: 35px;
+  font-weight: bold;
+  margin-top: 0px;
+  margin-left: 40px;
+}
+
 .home-background {
   background-image: url("https://cdn.cnn.com/cnnnext/dam/assets/161215123358-3-lodge-verbier-full-169.jpg");
   background-size: 100%;
