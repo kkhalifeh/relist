@@ -1,15 +1,3 @@
-# class ApplicationController < ActionController::Base
-#   helper_method :current_user
-#
-#   def current_user
-#     User.find_by(email: 'jonsauer@runtemarvin.co')
-#   end
-#
-#   def home
-#     render :home
-#   end
-# end
-
 class ApplicationController < ActionController::Base
   before_action :authorized #lock down this whole app
   helper_method :current_user, :logged_in? #i can call current_user from a view
