@@ -1,6 +1,6 @@
 require 'faker'
 
-User.destroy_all
+# User.destroy_all
 
 (1..10).each do |num|
   user = User.create({
@@ -156,7 +156,7 @@ listing9 = Listing.create({
       value: Faker::Number.number(4),
       price: Faker::Number.number(3),
       guest: rand(1...6),
-      seller_id: rand(1...10),
+      seller_id: 9,
       title: "Apartment in Glendale, Denver",
       check_in: "Mon, 4 Mar 2019",
       check_out: "Wed, 6 Mar 2019",
@@ -168,7 +168,7 @@ listing10 = Listing.create({
       value: Faker::Number.number(4),
       price: Faker::Number.number(3),
       guest: rand(1...6),
-      seller_id: rand(1...10),
+      seller_id: 1,
       title: "Tallebudgera Valley on the Gold Coast",
       check_in: "Mon, 4 Mar 2019",
       check_out: "Wed, 6 Mar 2019",
@@ -182,7 +182,7 @@ listing11 = Listing.create({
       value: Faker::Number.number(4),
       price: Faker::Number.number(3),
       guest: rand(1...6),
-      seller_id: rand(1...10),
+      seller_id: 9,
       title: "Injidup Spa Retreat in the heart of the Margaret River",
       check_in: "Mon, 4 Mar 2019",
       check_out: "Wed, 6 Mar 2019",
@@ -197,7 +197,7 @@ listing12 = Listing.create({
       value: Faker::Number.number(4),
       price: Faker::Number.number(3),
       guest: rand(1...6),
-      seller_id: rand(1...10),
+      seller_id: 1,
       title: "Agios Ioannis, Mykonos",
       check_in: "Mon, 4 Mar 2019",
       check_out: "Wed, 6 Mar 2019",
@@ -209,6 +209,9 @@ listing12.photo.attach(io: File.open("app/assets/images/img17.jpg"), filename: "
 
 
 
+
+Sale.create(seller_id: 1, buyer_id: 9, listing_id: listing12.id)
+Sale.create(seller_id: 9, buyer_id: 8, listing_id: listing9.id)
 
 # _________________________________________________________________________________
 
