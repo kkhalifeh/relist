@@ -116,10 +116,11 @@
 
 h1#class-one{
   color: white;
-  font-family: helvetica;
-  font-size: 60px;
+  font-family: 'Pacifico', cursive;
+  font-size: 85px;
   font-weight: bold;
-  margin-top: -50px;
+  margin-top: -80px;
+  margin-left: 40px;
 }
 
 .home-background {
