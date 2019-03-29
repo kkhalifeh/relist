@@ -17,7 +17,7 @@ class ListingsController < ApplicationController
   # GET /listings
   def index
     #WILL_PAGINATE GEM INSTALLED
-    @listings = Listing.all.find_all do |listing| listing.sale == nil end
+    @listings = Listing.all.find_all do |listing| listing.sale == nil && listing.check_in > Date.yesterday end
     @listings = @listings.paginate(page: params[:page], per_page: 10)
     if params[:search]
       # @listings = Listing.search(params[:search]).paginate(page: params[:page], per_page: 10).order("created_at DESC")
