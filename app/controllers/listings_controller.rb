@@ -54,20 +54,32 @@ class ListingsController < ApplicationController
 
   # PATCH/PUT /listings/1
   def update
-    respond_to do |format|
-      if @listing.update(listing_params)
-        format.html { redirect_to @listing, notice: 'Listing was successfully updated.' }
-      else
-        format.html { render :edit }
+    if !@listing.sale
+      respond_to do |format|
+        if @listing.update(listing_params)
+          format.html { redirect_to @listing, notice: 'Listing was successfully updated.' }
+        else
+          format.html { render :edit }
+        end
+      end
+    else
+      respond_to do |format|
+        format.html { redirect_to listings_url, notice: 'Unable to edit listing that has already been sold.' }
       end
     end
   end
 
   # DELETE /listings/1
   def destroy
-    @listing.destroy
-    respond_to do |format|
-      format.html { redirect_to listings_url, notice: 'Listing was successfully deleted.' }
+    if !@listing.sale
+      @listing.destroy
+      respond_to do |format|
+        format.html { redirect_to listings_url, notice: 'Listing was successfully deleted.' }
+      end
+    else
+      respond_to do |format|
+        format.html { redirect_to listings_url, notice: 'Unable to delete listing that has already been sold.' }
+      end
     end
   end
 

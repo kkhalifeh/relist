@@ -1,7 +1,4 @@
 class SalesController < ApplicationController
-  def index
-  end
-
   def create
     listing = Listing.find(params[:listing_id])
     sale = listing.create_sale(buyer_id: current_user.id)
