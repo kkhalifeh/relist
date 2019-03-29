@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_25_213122) do
+ActiveRecord::Schema.define(version: 2019_03_29_141534) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -50,8 +50,6 @@ ActiveRecord::Schema.define(version: 2019_03_25_213122) do
     t.date "check_in"
     t.date "check_out"
     t.string "description"
-    t.integer "category_id"
-    t.index ["category_id"], name: "index_listings_on_category_id"
     t.index ["seller_id"], name: "index_listings_on_seller_id"
   end
 
